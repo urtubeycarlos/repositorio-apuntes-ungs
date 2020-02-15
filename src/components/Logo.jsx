@@ -11,7 +11,7 @@ export default class Logo extends Component {
     render(){
         return (
             <Row className="justify-content-center">
-                <img src="./logo_ungs_blanco.svg"></img>
+                <img src="./logo.svg"></img>
             </Row>
         )
     }
