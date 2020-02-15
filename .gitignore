@@ -12,7 +12,6 @@
 /build
 /www
 /plugins
-/platforms
 
 # misc
 .DS_Store
