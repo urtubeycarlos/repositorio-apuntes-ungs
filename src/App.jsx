@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Logo from './components/Logo.jsx';
-import Form from './components/Form.jsx';
+import View from './components/View.jsx';
 import { Container } from 'react-bootstrap';
 
 export default class App extends Component {
@@ -14,6 +14,7 @@ export default class App extends Component {
     return (
       <Container>
             <Logo></Logo>
+            <View></View>
       </Container>
     );
   }

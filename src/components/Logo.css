@@ -1,0 +1,12 @@
+img {
+    width: 90%;
+    height: 10%;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+@media (min-width: 768px) {
+    img {
+        width: 50%;
+    }
+}

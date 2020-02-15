@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
+import './Logo.css'
 
 export default class Logo extends Component {
 
@@ -10,7 +11,7 @@ export default class Logo extends Component {
     render(){
         return (
             <Row className="justify-content-center">
-              <img src="./logo_ungs_blanco.svg" id="logoUNGS"></img>
+                <img src="./logo_ungs_blanco.svg"></img>
             </Row>
         )
     }
