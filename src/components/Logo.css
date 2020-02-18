@@ -1,5 +1,5 @@
 img {
-    width: 90%;
+    width: 60%;
     height: 10%;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
@@ -7,6 +7,6 @@ img {
 
 @media (min-width: 768px) {
     img {
-        width: 50%;
+        width: 25%;
     }
 }
