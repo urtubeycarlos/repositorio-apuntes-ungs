@@ -14,7 +14,7 @@ export default class Login extends Component {
 
     render(){
             return (
-                <Container className="mt-8">
+                <Container>
                     <Logo />
                     <Jumbotron>
                         <Row className="justify-content-center">
@@ -23,7 +23,6 @@ export default class Login extends Component {
                         <Loading />
                     </Jumbotron>
                 </Container>
-                
             )
 
     }
