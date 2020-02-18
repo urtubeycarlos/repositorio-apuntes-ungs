@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "@version/react-router-v3": "^1.0.0",
     "bootstrap": "^4.4.1",
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
@@ -23,7 +24,6 @@
     "react-browser-notifications": "^1.0.14",
     "react-controller": "^1.2.2",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1",
     "react.cordova-navigation_controller": "^1.6.6"
   },

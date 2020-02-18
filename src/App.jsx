@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Logo from './components/Logo.jsx';
 import Login from './components/Login.jsx'
-import Search from './components/Login.jsx'
-import $ from 'jquery'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import Home from './components/Home.jsx'
+import Home from './components/Results.jsx'
+import { Router, Route, browserHistory } from "react-router";
 
 export default class App extends Component {
 
@@ -18,16 +13,11 @@ export default class App extends Component {
 
   render(){
     return (
-      <Router>
-        <Switch>
-          <Route path="/">
-            <Search />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-        </Switch>
-    </Router>
+        <Router history = {browserHistory}>
+          <Route path = "/" component = {Login}/>
+          <Route path = "/home" component = {Home}/>
+          <Route path = "/results" component = {Results}/>
+        </Router>
     );
 
   }

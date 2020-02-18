@@ -4,28 +4,20 @@ import $ from 'jquery';
 import Logo from './Logo.jsx';
 import Loading from './Loading.jsx';
 import { Container, Jumbotron, Row, Spinner } from 'react-bootstrap';
-import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
 
     constructor(props){
         super(props)
 
-        this.state = {
-            "redirect": null
-        }
-
-        this.componentDidMount = this.componentDidMount.bind(this);
     }
 
     render(){
-
-        if( !this.state.redirect ){
             return (
                 <Container className="mt-8">
+                    <Logo />
                     <Jumbotron>
-                        <Row className="justify-content-center">                         
-                            <h1>{this.state.redirect}</h1>
+                        <Row className="justify-content-center">
                             <h5>Detectando ubicación...</h5>
                         </Row>
                         <Loading />
@@ -33,9 +25,6 @@ export default class Login extends Component {
                 </Container>
                 
             )
-        } else {
-            return <Redirect to={this.state.redirect}></Redirect>
-        }        
 
     }
 
@@ -53,8 +42,8 @@ export default class Login extends Component {
             $.support.cors = true
             $.ajax("http://localhost/login.php")
                 .then(function(json){
-                    if( json )
-                        self.setState({"redirect": "search"});
+                     if( json )
+                        window.location.href = "home"
                 });
         };
       

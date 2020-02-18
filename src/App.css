@@ -33,8 +33,8 @@ input[type=file] {
 }
 
 Form {
-    width: 75%;
-    background-color: whitesmoke;
+    width: 100%;
+    /* background-color: whitesmoke; */
     padding: 2em;
     border-radius: 0.5em;
     /* margin-bottom: 2em; */
