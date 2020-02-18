@@ -12,6 +12,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "repositorio-apuntes-ungs"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "repositorio-apuntes-ungs"
     }
   },
   "dependent_plugins": {

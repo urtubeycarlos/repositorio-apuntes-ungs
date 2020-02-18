@@ -1,0 +1,15 @@
+body {
+    background-image:url("mk.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+}
+
+/* @media (min-height: 600px) {
+    .container {
+        padding-top: 1em;
+        padding-bottom: 100%;
+    }
+} */

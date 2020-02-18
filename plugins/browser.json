@@ -12,6 +12,9 @@
     },
     "cordova-plugin-local-notification": {
       "PACKAGE_NAME": "com.roadlesscreations.apuntesungs"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.roadlesscreations.apuntesungs"
     }
   },
   "dependent_plugins": {
