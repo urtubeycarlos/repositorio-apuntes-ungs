@@ -17,8 +17,7 @@ export default class RESTClient {
 
   parseFilterValue( value ) {
 
-    if ( value._isAMomentObject )
-    {
+    if (value._isAMomentObject){
       return value.toISOString();
     }
 
@@ -29,7 +28,7 @@ export default class RESTClient {
     let result = [];
 
     for (var key in filters) {
-      if ( filters[key] == undefined ) { // what is this case for?
+      if (filters[key] == undefined) { // what is this case for?
         result.push(key);
       }
       else {
