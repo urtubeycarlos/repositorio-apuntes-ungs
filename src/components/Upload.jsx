@@ -13,6 +13,8 @@ const Upload = () => {
     */
     const upLoad = () => {
 
+        this.showFilename = this.showFilename.bind(this);
+        this.upload = this.upload.bind(this);
     }
 
     return(

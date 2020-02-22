@@ -23,7 +23,7 @@ export default class Note extends Component {
                         <Container>
                             <Row>
                                 <Col sm={"auto"} className="my-auto">
-                                    <i class={this.state.fa_extension} style={{"font-size":"5em"}}></i>
+                                    <i className={this.state.fa_extension} style={{"fontSize":"5em"}}></i>
                                 </Col>
                                 <Col>
                                     <Card.Title>{`${this.props.filename}${this.props.extension}`}</Card.Title>
