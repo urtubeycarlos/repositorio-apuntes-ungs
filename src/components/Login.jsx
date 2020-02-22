@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Controller } from 'react-controller'
-import $ from 'jquery';
 import Logo from './Logo.jsx';
 import Loading from './Loading.jsx';
 import { Container, Jumbotron, Row, Spinner } from 'react-bootstrap';
@@ -27,30 +26,30 @@ export default class Login extends Component {
 
     }
 
-    componentDidMount(){
+//     componentDidMount(){
 
-        var self = this;
-        var options = {
-            enableHighAccuracy: true,
-            maximumAge: 3600000,
-        }
+//         var self = this;
+//         var options = {
+//             enableHighAccuracy: true,
+//             maximumAge: 3600000,
+//         }
         
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, options)
+//         navigator.geolocation.getCurrentPosition(onSuccess, onError, options)
 
-        function onSuccess(position) {
-            $.support.cors = true
-            $.ajax("http://localhost/login.php")
-                .then(function(json){
-                     if( json )
-                        window.location.href = "home"
-                });
-        };
+//         function onSuccess(position) {
+//             $.support.cors = true
+//             $.ajax("http://localhost/login.php")
+//                 .then(function(json){
+//                      if( json )
+//                         window.location.href = "home"
+//                 });
+//         };
       
-        function onError(error) {
-            navigator.geolocation.getCurrentPosition(onSuccess, onError, options)
-        }
+//         function onError(error) {
+//             navigator.geolocation.getCurrentPosition(onSuccess, onError, options)
+//         }
 
-    }
+//     }
 
 }
 

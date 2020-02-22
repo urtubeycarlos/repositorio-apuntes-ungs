@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import { Container, Row, Jumbotron } from "react-bootstrap";
 import Loading from "./Loading.jsx";
 import Logo from './Logo';
@@ -24,7 +23,6 @@ export default class Results extends Component {
                             <h5>Buscando apuntes</h5>
                         </Row>
                         <Loading />
-                        
                         <Note filename={'complejidad_computacional'} extension={'.java'} url={"https://www.youtube.com/"} description={"Soy una describicion Soy una describicion Soy una describicion Soy una describicion Soy una describicion"}/>
                         
                         
@@ -50,19 +48,19 @@ export default class Results extends Component {
         
     }
 
-    componentWillMount(){
-        var self = this;
-        $.ajax("http://localhost/api/1.0/note").
-                    then(function(response){
-                        response['Notes'] = response['Notes'].map(function(note){
-                            console.log(note)
-                            return (
-                                <Note filename={`${note.Filename}.${note.Extension}`} description={note.Description} url={note.Url}/>
-                            )
-                        })
-                        self.setState({'results': response['Notes']});
-                    })
+    // componentWillMount(){
+    //     var self = this;
+    //     $.ajax("http://localhost/api/1.0/note").
+    //                 then(function(response){
+    //                     response['Notes'] = response['Notes'].map(function(note){
+    //                         console.log(note)
+    //                         return (
+    //                             <Note filename={`${note.Filename}.${note.Extension}`} description={note.Description} url={note.Url}/>
+    //                         )
+    //                     })
+    //                     self.setState({'results': response['Notes']});
+    //                 })
         
-    }
+    // }
 
 }

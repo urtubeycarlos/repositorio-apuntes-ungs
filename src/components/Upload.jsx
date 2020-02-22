@@ -1,43 +1,48 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Row, Form } from "react-bootstrap";
+import Button from '@material-ui/core/Button';
 
-export default class Upload extends Component {
+const Upload = () => {
+    /**
+     * States and setStates
+    */
+    const [fileSelected, setFileSelected] = useState('Buscar..')
 
-    constructor(props){
-        super(props)
-        this.state = {
-            fileSelected: "Buscar..."
-        }
+    /**
+     * Methods
+    */
+    const upLoad = () => {
 
     }
 
-    render(){
-        return(
-            <Row className="justify-content-center">
-                <Form>
-                    <Form.Group>
-                        <label htmlFor="career">Carrera</label>
-                        <input type="text" className="form-control" name="career" id="career" placeholder="Seleccione Carrera..." />
-                    </Form.Group>
-                    <Form.Group>
-                        <label htmlFor="assignature">Materia</label>
-                        <input type="text" className="form-control" name="assignature" id="assignature" placeholder="Seleccione Materia..." />
-                    </Form.Group>
-                    <Form.Group className="mt-8">
-                        <label htmlFor="real-apunte-btn">Seleccione archivo</label><br/>
-                        <label htmlFor="apunte" id="real-apunte-btn" className="btn btn-primary">{this.state.fileSelected}</label><br/>
-                        <input type="file" name="apunte" id="apunte"/>
-                    </Form.Group>
-                    <div className="float-right">
-                        <button type="submit" className="next btn btn-info mt-2" id="confimDatosPedido">Subir !</button>
-                    </div>  
-                </Form>
-            </Row>
-        )
-    }
+    return(
+        <Row className="justify-content-center">
+            <Form>
+                <Form.Group>
+                    <label htmlFor="career">Carrera</label>
+                    <input type="text" className="form-control" name="career" id="career" placeholder="Seleccione Carrera..." />
+                </Form.Group>
+                <Form.Group>
+                    <label htmlFor="assignature">Materia</label>
+                    <input type="text" className="form-control" name="assignature" id="assignature" placeholder="Seleccione Materia..." />
+                </Form.Group>
+                <Form.Group className="mt-8">
+                    <label htmlFor="real-apunte-btn">Seleccione archivo</label><br/>
+                    <Button variant="contained" color="primary" onClick={() => console.log('clicked')}>{fileSelected}</Button>
+                    <br/>
+                    <input type="file" name="apunte" id="apunte"/>
+                </Form.Group>
+                <div className="float-right">
+                    <Button variant="contained" color="secondary" onClick={() => upLoad()}>Subr</Button>
+                </div>  
+            </Form>
+        </Row>)
 
-    manejarCambio(event){
-        let files = event.target.files;
-    }
+
+    // manejarCambio(event){
+    //     let files = event.target.files;
+    // }
 
 }
+
+export default Upload;
