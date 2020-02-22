@@ -1,18 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Row } from 'react-bootstrap';
-import './Logo.css'
+import './styles/logo.css'
 
-export default class Logo extends Component {
+const Logo = () => {
+    return (
+        <Row className="justify-content-center">
+            <img src="./logo.png"></img>
+        </Row>);
+};
 
-    constructor(props){
-        super(props)
-    }
-
-    render(){
-        return (
-            <Row className="justify-content-center">
-                <img src="./logo.png"></img>
-            </Row>
-        )
-    }
-}
+export default Logo;

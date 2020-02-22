@@ -1,47 +1,43 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Form } from 'react-bootstrap';
-import $ from 'jquery';
-import 'jquery-ui/themes/base/core.css';
-import 'jquery-ui/themes/base/theme.css';
-import 'jquery-ui/themes/base/tabs.css';
-import 'jquery-ui/ui/core';
-import 'jquery-ui/ui/widgets/tabs';
-import Logo from './Logo';
+import Button from '@material-ui/core/Button';
 
-export default class Search extends Component {
-    
-    constructor(props){
-        super(props);
+const Search = () => {
+    /**
+     * States and setStates
+    */
+    const [career, setCareer] = useState('');
+    const [assignature, setAssignature] = useState('')
+
+    /**
+     * Methods
+    */
+
+    const search = () => {
 
     }
-
-    render(){
-        return (
-            <Row className="justify-content-center">
-                <Form>
+    return (
+        <Row className="justify-content-center">
+            <Form>
                 <Form.Group>
-                <label htmlFor="career">Carrera</label>
-                <input type="text" className="form-control" name="career" id="career" placeholder="Seleccione Carrera..." />
+                    <label htmlFor="career">Carrera</label>
+                    <input type="text" className="form-control" name="career" id="career" placeholder="Seleccione Carrera..." />
                 </Form.Group>
                 <Form.Group>
-                <label htmlFor="assignature">Materia</label>
-                <input type="text" className="form-control" name="assignature" id="assignature" placeholder="Seleccione Materia..." />
+                    <label htmlFor="assignature">Materia</label>
+                    <input type="text" className="form-control" name="assignature" id="assignature" placeholder="Seleccione Materia..." />
                 </Form.Group>
                 <div className="float-right">
-                    <button type="submit" className="next btn btn-info mt-2" id="confimDatosPedido">Buscar !</button>
+                    <Button variant="contained" color="primary" onClick={() => search()}>Buscar</Button>
                 </div>  
             </Form>
-            </Row>
-
-        )
-    }
-    
-      manejarCambio(event){
-        let files = event.target.files;
-        this.setState({fileSelected: `Seleccionado: ${files[0].name}`});
-      }
+        </Row>);
+        
+    //   manejarCambio(event){
+    //     let files = event.target.files;
+    //     this.setState({fileSelected: `Seleccionado: ${files[0].name}`});
+    //   }
       
-      componentDidMount(){
-          $("#tabs").tabs();
-      }
 }
+
+export default Search;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './components/Login.jsx'
-import Home from './components/Home.jsx'
-import Results from './components/Results.jsx'
+import Login from './views/Login.jsx'
+import Home from './views/Home.jsx'
+import Results from './views/Results.jsx'
 import { Router, Route, browserHistory } from "react-router";
 
 export default class App extends Component {
