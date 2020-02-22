@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import Button from '@material-ui/core/Button';
 
 export default class Note extends Component {
     
@@ -14,7 +15,6 @@ export default class Note extends Component {
             "pdf": "fa fa-file-pdf-o"
         }
     }
-
     render(){
         return (
             <Row className="justify-content-center">
@@ -30,7 +30,7 @@ export default class Note extends Component {
                                     <Card.Text>
                                         {this.props.description}
                                     </Card.Text>
-                                    <Button variant="info" href={this.props.url}>Descargar</Button>
+                                    <Button color="secondary" href={this.props.url}>Descargar</Button>
                                 </Col>
                             </Row>
                         </Container>
