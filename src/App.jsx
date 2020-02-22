@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './components/Login.jsx'
+import Login from './views/Login.jsx'
 import Home from './views/Home.jsx'
 import Results from './views/Results.jsx'
 import { Router, Route, browserHistory } from "react-router";

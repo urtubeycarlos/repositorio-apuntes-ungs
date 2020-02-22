@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
-import './Logo.css'
+import './styles/logo.css'
 
 const Logo = () => {
     return (

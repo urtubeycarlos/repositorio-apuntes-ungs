@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Controller } from 'react-controller'
-import Logo from './Logo.jsx';
-import Loading from './Loading.jsx';
+import Logo from '../components/Logo.jsx';
+import Loading from '../components/Loading.jsx';
 import { Container, Jumbotron, Row, Spinner } from 'react-bootstrap';
 
 export default class Login extends Component {
