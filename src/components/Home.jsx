@@ -14,6 +14,11 @@ export default class Home extends Component {
 
     constructor(props){
         super(props)
+
+        this.state = {
+            careers: [],
+            assignatures: []
+        }
     }
 
     render(){
@@ -26,7 +31,7 @@ export default class Home extends Component {
                         <li><a href="#tabs-2">Subir Apuntes</a></li>
                     </ul>
                     <div id="tabs-1">
-                        <Search />
+                        <Search onCareer={this.changeAssignatures}/>
                     </div>
                     <div id="tabs-2">
                         <Upload />
