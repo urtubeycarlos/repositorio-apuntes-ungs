@@ -4,8 +4,7 @@ import { Container, Row, Form } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-
-import CareerList from './CareerSelect';
+import CareerSelect from './CareerSelect';
 
 const { getAssignatureByCareer } = require('../services/assignaturesService');
 
@@ -53,7 +52,7 @@ class Search extends Component {
         <Row className="justify-content-center">
           <Form>
             <Form.Group>
-              <CareerList onChange={(event, career) => this.setCareer(career)}/>
+              <CareerSelect onChange={(event, career) => this.setCareer(career)}/>
             </Form.Group>
             <Form.Group>
               <Autocomplete
