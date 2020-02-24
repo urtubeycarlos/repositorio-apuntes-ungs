@@ -34,6 +34,7 @@ class CareerSelect extends Component {
     return(
       <Autocomplete
         id="career-select"
+        className="career-select"
         options={careers}
         onChange={(event, newValue) => this.props.onChange && this.props.onChange(event, newValue)}
         getOptionLabel={option => option.Name}
@@ -41,6 +42,7 @@ class CareerSelect extends Component {
           <TextField fullWidth
             {...params}
             label="Carrera"
+            placeholder="Seleccione una carrera"
             InputProps={{
               ...params.InputProps,
               endAdornment: (

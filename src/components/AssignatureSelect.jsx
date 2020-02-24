@@ -43,6 +43,7 @@ class AssignatureSelect extends Component {
       <Autocomplete
         disabled={disabled}
         id="assignature-select"
+        className="assignature-select"
         options={assignatures}
         onChange={(event, newValue) => this.props.onChange && this.props.onChange(event, newValue)}
         getOptionLabel={option => option.Name}
@@ -50,6 +51,7 @@ class AssignatureSelect extends Component {
           <TextField fullWidth
             {...params}
             label="Materia"
+            placeholder="Seleccione una materia"
             InputProps={{
               ...params.InputProps,
               endAdornment: (
