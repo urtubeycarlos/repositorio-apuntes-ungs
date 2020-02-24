@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const { getAllCareers } = require('../services/careersService');
 
@@ -11,37 +12,47 @@ class CareerSelect extends Component {
 
     this.state = {
       careers: [],
-      isLoading: false,
+      isLoading: true,
     };
   }
 
   componentDidMount() {
-    this.setState({
-      isLoading: true,
-    }, () => {
-      getAllCareers()
-        .then(response => {
-          this.setState({
-            careers: response.data.Careers,
-            isLoading: false,
-          });
-      })
-      .catch((err) => {
-        //handle somehow this error
-      });
+    getAllCareers()
+      .then(response => {
+        this.setState({
+          careers: response.data.Careers,
+          isLoading: false,
+        });
     })
+    .catch((err) => {
+      //handle somehow this error
+    });
   }
 
   render() {
     const { careers, isLoading } = this.state;
     return(
       <Autocomplete
-        disabled={isLoading}
         id="career-select"
         options={careers}
         onChange={(event, newValue) => this.props.onChange && this.props.onChange(event, newValue)}
         getOptionLabel={option => option.Name}
-        renderInput={params => (<TextField {...params} label="Carrera" fullWidth />)} />
+        renderInput={params => (
+          <TextField fullWidth
+            {...params}
+            label="Carrera"
+            InputProps={{
+              ...params.InputProps,
+              endAdornment: (
+                <React.Fragment>
+                  {isLoading ? <CircularProgress color="inherit" size={20} /> : null}
+                  {params.InputProps.endAdornment}
+                </React.Fragment>
+              ),
+            }}
+          />
+        )}  
+        />
     )
   }
 }

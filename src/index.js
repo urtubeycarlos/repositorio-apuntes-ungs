@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import 'cordova_script';
-import Search from './components/Search.jsx';
 
 document.addEventListener('deviceready', () => {
 

@@ -5,20 +5,11 @@ import Home from './views/Home.jsx'
 import Results from './views/Results.jsx'
 import { Router, Route, browserHistory } from "react-router";
 
-export default class App extends Component {
+const App = () => (
+    <Router history = {browserHistory}>
+      <Route path = "/" component = {Login}/>
+        <Route path = "/home" component = {Home}/>
+        <Route path = "/results" component = {Results}/>
+      </Router>);
 
-  constructor(props) {
-    super(props);
-  }
-
-  render(){
-    return (
-        <Router history = {browserHistory}>
-          <Route path = "/" component = {Login}/>
-          <Route path = "/home" component = {Home}/>
-          <Route path = "/results" component = {Results}/>
-        </Router>
-    );
-
-  }
-}
+export default App;

@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
+
 import { Row, Form } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
+import ReactFileReader from 'react-file-reader';
 
 const Upload = () => {
     /**
      * States and setStates
     */
-    const [fileSelected, setFileSelected] = useState('Buscar..')
+    const [fileSelected, setFileSelected] = useState([]);
 
     /**
      * Methods
     */
     const upLoad = () => {
+      
+    }
 
-        this.showFilename = this.showFilename.bind(this);
-        this.upload = this.upload.bind(this);
+    const loadFile = () => {
+      const reader = new FileReader();
+
+      reader.onload(() => {})
     }
 
     return(
@@ -30,20 +36,16 @@ const Upload = () => {
                 </Form.Group>
                 <Form.Group className="mt-8">
                     <label htmlFor="real-apunte-btn">Seleccione archivo</label><br/>
-                    <Button variant="contained" color="primary" onClick={() => console.log('clicked')}>{fileSelected}</Button>
+                    <ReactFileReader handleFiles={(files) => loadFile(files)}>
+                      <Button type="file" variant="contained" color="primary">Buscar..</Button>
+                    </ReactFileReader>
                     <br/>
-                    <input type="file" name="apunte" id="apunte"/>
                 </Form.Group>
                 <div className="float-right">
-                    <Button variant="contained" color="secondary" onClick={() => upLoad()}>Subr</Button>
+                    <Button variant="contained" color="secondary" onClick={() => upLoad()}>Subir</Button>
                 </div>  
             </Form>
-        </Row>)
-
-
-    // manejarCambio(event){
-    //     let files = event.target.files;
-    // }
+        </Row>);
 
 }
 

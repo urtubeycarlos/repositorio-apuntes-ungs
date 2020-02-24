@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-import { Container, Row, Form } from 'react-bootstrap';
+import { Row, Form } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import CareerList from './CareerSelect';
+import AssignatureSelect from './AssignatureSelect';
 
 const { getAssignatureByCareer } = require('../services/assignaturesService');
 
@@ -16,31 +15,17 @@ class Search extends Component {
       this.state = {
         career: null,
         assignature: null,
-        assignatureList: [],
         isLoading: null,
       }
 
       this.setCareer = this.setCareer.bind(this);
     }
 
-
     setCareer(newCareer) {
       this.setState({
         career: newCareer,
         isLoading: true,
-      }, () => {
-        debugger
-        getAssignatureByCareer(newCareer.Id)
-        .then(response => {
-          this.setState({
-            assignatureList: response.data.Assignatures,
-            isLoading: false,
-          });
-        })
-        .catch((err) => {
-          //handle somehow this error
-        });
-      })
+      });
     }
 
     search() {
@@ -48,7 +33,7 @@ class Search extends Component {
     }
 
     render() {
-      const { assignatureList, isLoading } = this.state;
+      const { career, isLoading } = this.state;
       return (
         <Row className="justify-content-center">
           <Form>
@@ -56,13 +41,7 @@ class Search extends Component {
               <CareerList onChange={(event, career) => this.setCareer(career)}/>
             </Form.Group>
             <Form.Group>
-              <Autocomplete
-                id="assignature-select"
-                disabled={isLoading}
-                options={assignatureList}
-                onChange={(event, newValue) => this.setState({ assignature: newValue })}
-                getOptionLabel={option => option.Name}
-                renderInput={params => (<TextField {...params} label="Materia" fullWidth />)} />
+              <AssignatureSelect careerId={career ? career.Id : null} />
             </Form.Group>
             <div className="float-right">
               <Button variant="contained" color="primary" onClick={() => this.search()}>Buscar</Button>
