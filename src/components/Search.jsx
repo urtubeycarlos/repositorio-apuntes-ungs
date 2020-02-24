@@ -30,12 +30,12 @@ class Search extends Component {
       });
     }
 
-    search() {
-
+    search = () => {
+      window.location.href = `/results?career=${this.state.career.Id}&assignature=${this.state.assignature.Id}`
     }
 
     render() {
-      const { career, isLoading } = this.state;
+      const { career, isLoading, assignature } = this.state;
       return(
         <div className="search-form-container">
           <div className="form-selects-row">
@@ -48,7 +48,7 @@ class Search extends Component {
           <div className="from-action-container">
             <div className="float-right">
               <Button 
-                disabled={isLoading} 
+                disabled={!career || !assignature} 
                 variant="contained" 
                 color="primary" 
                 onClick={() => this.search()}>Buscar</Button>
