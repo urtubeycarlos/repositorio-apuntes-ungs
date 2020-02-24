@@ -1,3 +1,4 @@
+import './styles/search.css';
 import React, { Component } from 'react';
 
 import { Row, Form } from 'react-bootstrap';
@@ -7,6 +8,7 @@ import CareerSelect from './CareerSelect';
 import AssignatureSelect from './AssignatureSelect';
 
 const { getAssignatureByCareer } = require('../services/assignaturesService');
+
 
 class Search extends Component {
     constructor(props) {
@@ -34,20 +36,16 @@ class Search extends Component {
 
     render() {
       const { career, isLoading } = this.state;
-      return (
-        <Row className="justify-content-center">
-          <Form>
-            <Form.Group>
-              <CareerSelect 
-                onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} 
-              />
-            </Form.Group>
-            <Form.Group>
-              <AssignatureSelect
-                careerId={career ? career.Id : null}
-                onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} 
-              />
-            </Form.Group>
+      return(
+        <div className="search-form-container">
+          <div className="form-selects-row">
+            <CareerSelect 
+              onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
+            <AssignatureSelect
+              careerId={career ? career.Id : null}
+              onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
+          </div>
+          <div className="from-action-container">
             <div className="float-right">
               <Button 
                 disabled={isLoading} 
@@ -55,8 +53,8 @@ class Search extends Component {
                 color="primary" 
                 onClick={() => this.search()}>Buscar</Button>
             </div>  
-          </Form>
-        </Row>);
+          </div>
+        </div>);
           
     } 
 }
