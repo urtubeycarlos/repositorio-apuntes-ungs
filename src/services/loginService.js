@@ -19,13 +19,13 @@ class Postion {
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 
-        function onSuccess(){
-            self.lat = position.coords.latitude,
-            self.lon = position.coords.longitude
+        function onSuccess(position){
+            self.lat = position.coords.latitude;
+            self.lon = position.coords.longitude;
         }
 
         function onError(error) {
-            getPosition()
+            this.getPosition()
         }
 
     }
