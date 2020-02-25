@@ -3,12 +3,12 @@ import { Controller } from 'react-controller'
 import Logo from '../components/Logo.jsx';
 import Loading from '../components/Loading.jsx';
 import { Container, Jumbotron, Row, Spinner } from 'react-bootstrap';
+import { loginIn } from '../services/loginService';
 
 export default class Login extends Component {
 
     constructor(props){
         super(props)
-
     }
 
     render(){
@@ -24,6 +24,12 @@ export default class Login extends Component {
                 </Container>
             )
 
+    }
+
+    componentDidMount(){
+
+        console.log(loginIn);
+        
     }
 
 //     componentDidMount(){
@@ -51,11 +57,4 @@ export default class Login extends Component {
 
 //     }
 
-}
-
-class Position {
-    constructor(lat, lon){
-        this.lat = lat;
-        this.lon = lon;
-    }
 }

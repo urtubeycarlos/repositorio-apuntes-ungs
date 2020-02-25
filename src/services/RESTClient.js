@@ -2,8 +2,7 @@ const axios = require('axios');
 
 export default class RESTClient {
   apiUri = '';
-
-  constructor(apiURI = 'https://repositorio-apuntes-ungs.000webhostapp.com/api/1.0') {
+  constructor(apiURI = `${serverURI}/api/${currentApiVersion}`) {
     this.apiURI = apiURI;
   }
 
@@ -13,6 +12,13 @@ export default class RESTClient {
     `${this.apiURI}/${endpoint}${this.getFiltersUrl(filters)}`
 
     return axios.get(urlEndpoint);
+  }
+
+  post(endpoint, body){
+    if( Object.keys(body).length === 0 )
+      throw new Error("Body cant be empty");
+    let urlEndpoint = `${this.apiURI}/${endpoint}`
+    return axios.post(urlEndpoint, body);
   }
 
   parseFilterValue( value ) {
