@@ -1,3 +1,4 @@
+import { serverURI, currentApiVersion } from './../config.js';
 const axios = require('axios');
 
 export default class RESTClient {
@@ -15,7 +16,7 @@ export default class RESTClient {
   }
 
   post(endpoint, body){
-    if( Object.keys(body).length === 0 )
+    if( body == undefined || Object.keys(body).length === 0 )
       throw new Error("Body cant be empty");
     let urlEndpoint = `${this.apiURI}/${endpoint}`
     return axios.post(urlEndpoint, body);

@@ -1,7 +1,3 @@
-.titulo {
-    margin: 1.5em;
-}
-
 body {
     background-image:url("ubyd.jpg");
     background-size: cover;
@@ -9,37 +5,4 @@ body {
     -webkit-background-size:cover;
     -moz-background-size:cover;
     -o-background-size:cover;
-}
-
-#menu {
-    width: auto;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    color: #4f5f6f;
-    border-radius: 0.3em;
-}
-
-
-
-option {
-    font-family: 'Open Sans', sans-serif;
-    /* font-weight: bold; */
-    color: #4f5f6f;
-    border-radius: 1em;
-}
-
-input[type=file] {
-    display: none;
-}
-
-Form {
-    width: 100%;
-    /* background-color: whitesmoke; */
-    padding: 2em;
-    border-radius: 0.5em;
-    /* margin-bottom: 2em; */
-}
-
-.nav-item {
-    background-color: whitesmoke;
-}
+  }
