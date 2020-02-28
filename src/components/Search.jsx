@@ -1,13 +1,14 @@
+import './styles/search.css';
 import React, { Component } from 'react';
 
-import { Container, Row, Form } from 'react-bootstrap';
+import { Row, Form } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
-import CareerList from './CareerSelect';
+import CareerSelect from './CareerSelect';
+import AssignatureSelect from './AssignatureSelect';
 
 const { getAssignatureByCareer } = require('../services/assignaturesService');
+
 
 class Search extends Component {
     constructor(props) {
@@ -16,59 +17,44 @@ class Search extends Component {
       this.state = {
         career: null,
         assignature: null,
-        assignatureList: [],
         isLoading: null,
       }
 
       this.setCareer = this.setCareer.bind(this);
     }
 
-
     setCareer(newCareer) {
       this.setState({
         career: newCareer,
         isLoading: true,
-      }, () => {
-        debugger
-        getAssignatureByCareer(newCareer.Id)
-        .then(response => {
-          this.setState({
-            assignatureList: response.data.Assignatures,
-            isLoading: false,
-          });
-        })
-        .catch((err) => {
-          //handle somehow this error
-        });
-      })
+      });
     }
 
-    search() {
-
+    search = () => {
+      window.location.href = `/results?career=${this.state.career.Id}&assignature=${this.state.assignature.Id}`
     }
 
     render() {
-      const { assignatureList, isLoading } = this.state;
-      return (
-        <Row className="justify-content-center">
-          <Form>
-            <Form.Group>
-              <CareerList onChange={(event, career) => this.setCareer(career)}/>
-            </Form.Group>
-            <Form.Group>
-              <Autocomplete
-                id="assignature-select"
-                disabled={isLoading}
-                options={assignatureList}
-                onChange={(event, newValue) => this.setState({ assignature: newValue })}
-                getOptionLabel={option => option.Name}
-                renderInput={params => (<TextField {...params} label="Materia" fullWidth />)} />
-            </Form.Group>
+      const { career, isLoading, assignature } = this.state;
+      return(
+        <div className="search-form-container">
+          <div className="form-selects-row">
+            <CareerSelect 
+              onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
+            <AssignatureSelect
+              careerId={career ? career.Id : null}
+              onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
+          </div>
+          <div className="from-action-container">
             <div className="float-right">
-              <Button variant="contained" color="primary" onClick={() => this.search()}>Buscar</Button>
+              <Button 
+                disabled={!career || !assignature} 
+                variant="contained" 
+                color="primary" 
+                onClick={() => this.search()}>Buscar</Button>
             </div>  
-          </Form>
-        </Row>);
+          </div>
+        </div>);
           
     } 
 }

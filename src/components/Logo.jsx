@@ -5,7 +5,7 @@ import './styles/logo.css'
 const Logo = () => {
     return (
         <Row className="justify-content-center">
-            <img src="./logo.png"></img>
+            <img alt="" src="./logo.png"></img>
         </Row>);
 };
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Controller } from 'react-controller'
 import Logo from '../components/Logo.jsx';
 import Loading from '../components/Loading.jsx';
 import { Container, Jumbotron, Row, Spinner } from 'react-bootstrap';
@@ -11,6 +10,7 @@ export default class Login extends Component {
     constructor(props){
         super(props)
     }
+
 
     render(){
             return (
@@ -52,5 +52,6 @@ export default class Login extends Component {
         }
 
     }
+
 
 }
