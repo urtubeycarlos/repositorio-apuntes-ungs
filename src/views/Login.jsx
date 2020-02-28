@@ -35,7 +35,7 @@ export default class Login extends Component {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, gpsOptions);
 
         function onSuccess(position){
-            data = new FormData();
+            var data = new FormData();
             data.append('lat', position.coords.latitude);
             data.append('lon', position.coords.longitude);
 
