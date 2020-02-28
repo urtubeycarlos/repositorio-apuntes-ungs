@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Logo from '../components/Logo.jsx';
 import Loading from '../components/Loading.jsx';
 import { Container, Jumbotron, Row, Spinner } from 'react-bootstrap';
-import { login } from '../services/loginService';
-const axios = require('axios');
+import { loginIn } from '../services/loginService';
 
 export default class Login extends Component {
 
@@ -29,29 +28,34 @@ export default class Login extends Component {
 
     componentDidMount(){
 
-        let gpsOptions = {
-            enableHighAccuracy: true,
-            maximumAge: 3600000
-        }
-
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, gpsOptions);
-
-        function onSuccess(position) {
-            let data = new FormData()
-            data.append('lat', position.coords.latitude);
-            data.append('lon', position.coords.longitude);
-            login(data)
-                .then( validation => {
-                    if( validation.isLogged )
-                        window.location.href = "/home"
-                });
-        }
-      
-        function onError(error) {
-            this.componentDidMount();
-        }
-
+        console.log(loginIn);
+        
     }
+
+//     componentDidMount(){
+
+//         var self = this;
+//         var options = {
+//             enableHighAccuracy: true,
+//             maximumAge: 3600000,
+//         }
+        
+//         navigator.geolocation.getCurrentPosition(onSuccess, onError, options)
+
+//         function onSuccess(position) {
+//             $.support.cors = true
+//             $.ajax("http://localhost/login.php")
+//                 .then(function(json){
+//                      if( json )
+//                         window.location.href = "home"
+//                 });
+//         };
+      
+//         function onError(error) {
+//             navigator.geolocation.getCurrentPosition(onSuccess, onError, options)
+//         }
+
+//     }
 
 
 }
