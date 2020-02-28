@@ -9,8 +9,6 @@ body {
     -webkit-background-size:cover;
     -moz-background-size:cover;
     -o-background-size:cover;
-<<<<<<< HEAD
-=======
 }
 
 #menu {
@@ -20,8 +18,6 @@ body {
     color: #4f5f6f;
     border-radius: 0.3em;
 }
-
-
 
 option {
     font-family: 'Open Sans', sans-serif;
@@ -44,5 +40,4 @@ Form {
 
 .nav-item {
     background-color: whitesmoke;
->>>>>>> parent of 6e0e2b5... Added login
 }

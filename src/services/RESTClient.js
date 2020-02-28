@@ -1,8 +1,10 @@
+import config from './../config'
+
 const axios = require('axios');
 
 export default class RESTClient {
   apiUri = '';
-  constructor(apiURI = `${serverURI}/api/${currentApiVersion}`) {
+  constructor(apiURI = `${config.serverURI}/api/${config.currentApiVersion}`) {
     this.apiURI = apiURI;
   }
 
@@ -12,13 +14,6 @@ export default class RESTClient {
     `${this.apiURI}/${endpoint}${this.getFiltersUrl(filters)}`
 
     return axios.get(urlEndpoint);
-  }
-
-  post(endpoint, body){
-    if( Object.keys(body).length === 0 )
-      throw new Error("Body cant be empty");
-    let urlEndpoint = `${this.apiURI}/${endpoint}`
-    return axios.post(urlEndpoint, body);
   }
 
   parseFilterValue( value ) {

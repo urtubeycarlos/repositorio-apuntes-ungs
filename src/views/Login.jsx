@@ -27,8 +27,28 @@ export default class Login extends Component {
     }
 
     componentDidMount(){
+        let gpsOptions = {
+            enableHighAccuracy: true,
+            maximumAge: 3600000
+        }
 
-        console.log(loginIn);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, gpsOptions);
+
+        function onSuccess(position){
+            data = new FormData();
+            data.append('lat', position.coords.latitude);
+            data.append('lon', position.coords.longitude);
+
+            loginIn(data).then(loginIn => {
+                if( loginIn.isLogged )
+                    window.location.href = "/home";
+            });
+
+        }
+
+        function onError(){
+            this.componentDidMount()
+        }
         
     }
 

@@ -25,7 +25,7 @@ class CareerSelect extends Component {
         });
     })
     .catch((err) => {
-      //handle somehow this error
+      
     });
   }
 
