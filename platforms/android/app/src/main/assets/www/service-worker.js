@@ -16,7 +16,11 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 importScripts(
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "./precache-manifest.1e00313da52c3dee5affc22afba0d288.js"
+=======
+  "./precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js"
+>>>>>>> parent of d179069... Fixed some inconsistencies
 =======
   "./precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js"
 >>>>>>> parent of d179069... Fixed some inconsistencies
