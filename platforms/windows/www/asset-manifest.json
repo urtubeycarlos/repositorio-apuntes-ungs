@@ -1,9 +1,5 @@
 ﻿{
   "files": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "main.css": "./static/css/main.ab275bee.chunk.css",
     "main.js": "./static/js/main.955a0d42.chunk.js",
     "main.js.map": "./static/js/main.955a0d42.chunk.js.map",
@@ -16,101 +12,12 @@
     "service-worker.js": "./service-worker.js",
     "static/css/main.ab275bee.chunk.css.map": "./static/css/main.ab275bee.chunk.css.map",
     "static/js/2.574ee63c.chunk.js.LICENSE.txt": "./static/js/2.574ee63c.chunk.js.LICENSE.txt",
-=======
-    "main.css": "./static/css/main.c46200c3.chunk.css",
-    "main.js": "./static/js/main.c280f2dd.chunk.js",
-    "main.js.map": "./static/js/main.c280f2dd.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.fe336bee.js",
-    "runtime-main.js.map": "./static/js/runtime-main.fe336bee.js.map",
-    "static/css/2.c0fbb8a8.chunk.css": "./static/css/2.c0fbb8a8.chunk.css",
-    "static/js/2.92891198.chunk.js": "./static/js/2.92891198.chunk.js",
-    "static/js/2.92891198.chunk.js.map": "./static/js/2.92891198.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js": "./precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/2.c0fbb8a8.chunk.css.map": "./static/css/2.c0fbb8a8.chunk.css.map",
-    "static/css/main.c46200c3.chunk.css.map": "./static/css/main.c46200c3.chunk.css.map",
-    "static/js/2.92891198.chunk.js.LICENSE.txt": "./static/js/2.92891198.chunk.js.LICENSE.txt",
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
-    "main.css": "./static/css/main.c46200c3.chunk.css",
-    "main.js": "./static/js/main.c280f2dd.chunk.js",
-    "main.js.map": "./static/js/main.c280f2dd.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.fe336bee.js",
-    "runtime-main.js.map": "./static/js/runtime-main.fe336bee.js.map",
-    "static/css/2.c0fbb8a8.chunk.css": "./static/css/2.c0fbb8a8.chunk.css",
-    "static/js/2.92891198.chunk.js": "./static/js/2.92891198.chunk.js",
-    "static/js/2.92891198.chunk.js.map": "./static/js/2.92891198.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js": "./precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/2.c0fbb8a8.chunk.css.map": "./static/css/2.c0fbb8a8.chunk.css.map",
-    "static/css/main.c46200c3.chunk.css.map": "./static/css/main.c46200c3.chunk.css.map",
-    "static/js/2.92891198.chunk.js.LICENSE.txt": "./static/js/2.92891198.chunk.js.LICENSE.txt",
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
-    "main.css": "./static/css/main.c46200c3.chunk.css",
-    "main.js": "./static/js/main.c280f2dd.chunk.js",
-    "main.js.map": "./static/js/main.c280f2dd.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.fe336bee.js",
-    "runtime-main.js.map": "./static/js/runtime-main.fe336bee.js.map",
-    "static/css/2.c0fbb8a8.chunk.css": "./static/css/2.c0fbb8a8.chunk.css",
-    "static/js/2.92891198.chunk.js": "./static/js/2.92891198.chunk.js",
-    "static/js/2.92891198.chunk.js.map": "./static/js/2.92891198.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js": "./precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/2.c0fbb8a8.chunk.css.map": "./static/css/2.c0fbb8a8.chunk.css.map",
-    "static/css/main.c46200c3.chunk.css.map": "./static/css/main.c46200c3.chunk.css.map",
-    "static/js/2.92891198.chunk.js.LICENSE.txt": "./static/js/2.92891198.chunk.js.LICENSE.txt",
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
-    "main.css": "./static/css/main.c46200c3.chunk.css",
-    "main.js": "./static/js/main.c280f2dd.chunk.js",
-    "main.js.map": "./static/js/main.c280f2dd.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.fe336bee.js",
-    "runtime-main.js.map": "./static/js/runtime-main.fe336bee.js.map",
-    "static/css/2.c0fbb8a8.chunk.css": "./static/css/2.c0fbb8a8.chunk.css",
-    "static/js/2.92891198.chunk.js": "./static/js/2.92891198.chunk.js",
-    "static/js/2.92891198.chunk.js.map": "./static/js/2.92891198.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js": "./precache-manifest.221b4fd57d6cebc117e83f1fd58d3058.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/2.c0fbb8a8.chunk.css.map": "./static/css/2.c0fbb8a8.chunk.css.map",
-    "static/css/main.c46200c3.chunk.css.map": "./static/css/main.c46200c3.chunk.css.map",
-    "static/js/2.92891198.chunk.js.LICENSE.txt": "./static/js/2.92891198.chunk.js.LICENSE.txt",
->>>>>>> parent of d179069... Fixed some inconsistencies
     "static/media/App.css": "./static/media/ubyd.b95448b9.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.fe336bee.js",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "static/js/2.574ee63c.chunk.js",
     "static/css/main.ab275bee.chunk.css",
     "static/js/main.955a0d42.chunk.js"
-=======
-=======
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
->>>>>>> parent of d179069... Fixed some inconsistencies
-    "static/css/2.c0fbb8a8.chunk.css",
-    "static/js/2.92891198.chunk.js",
-    "static/css/main.c46200c3.chunk.css",
-    "static/js/main.c280f2dd.chunk.js"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
->>>>>>> parent of d179069... Fixed some inconsistencies
-=======
->>>>>>> parent of d179069... Fixed some inconsistencies
   ]
 }

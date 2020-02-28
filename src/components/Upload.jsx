@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Form } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
+import './styles/upload.css'
 
 const Upload = () => {
     /**
