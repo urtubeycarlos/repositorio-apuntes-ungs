@@ -16,17 +16,14 @@ class Results extends Component {
 
   componentDidMount() {
     const searchParams = this.getParams();
-    debugger
     if (searchParams.assignature) {
       getNoteByAssignaure(searchParams.assignature)
         .then(response => {
-          debugger
           this.setState({
             results: response.data.Notes,
           });
         })
         .catch((err) => {
-          debugger
           //handle somehow this error
         });
     }

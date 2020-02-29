@@ -1,14 +1,8 @@
-import config from './../config';
+import RESTClient from './RESTClient';
+const restclient = new RESTClient();
 
-export const loginIn = position => {
-    if( !(position instanceof FormData) )
-        throw new Error('position must be a instance of FormData');
-    let url = `${config.serverURI}/login.php`;
-    console.log(url)
-    return fetch(url, {
-        method: 'POST',
-        data: position
-    }).then( response => response.json() );
-} 
+export const loginIn = position => restclient.signIn(position);
+
+
     
 
