@@ -5,6 +5,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
+import Portal from "@material-ui/core/Portal";
 
 const { getAllCareers } = require('../services/careersService');
 
@@ -65,9 +66,11 @@ class CareerSelect extends Component {
             />
           )}  
           />
-        <Snackbar open={isError} autoHideDuration={6000} onClose={() => this.setState({ isError: false, })}>
-          <Alert onClose={() => this.setState({ isError: false })} severity="error">{errorMsj}</Alert>
-        </Snackbar>
+        <Portal>
+          <Snackbar open={isError} autoHideDuration={6000} onClose={() => this.setState({ isError: false, })}>
+            <Alert onClose={() => this.setState({ isError: false })} severity="error">{errorMsj}</Alert>
+          </Snackbar>
+        </Portal>
       </React.Fragment>)
   }
 }
