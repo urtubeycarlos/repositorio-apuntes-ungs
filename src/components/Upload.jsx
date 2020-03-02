@@ -21,6 +21,30 @@ class Upload extends Component {
 
   }
 
+  render() {
+    const { career } = this.state;
+    return(
+      <div className="upload-form-container">
+        <div className="form-selects-row">
+          <CareerSelect 
+            onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
+          <AssignatureSelect
+            careerId={career ? career.Id : null}
+            onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
+        </div>
+        <div className="from-action-container">
+          { this.renderLabel() }
+          <ReactFileReader handleFiles={(files) => this.setState(prevState => ({ filesSelected: [...files, ...prevState.filesSelected] }))}>
+            <Button type="file" variant="contained" color="primary">Buscar..</Button>
+          </ReactFileReader>
+          <br/>
+          <div className="float-right">
+            <Button variant="contained" color="secondary" onClick={() => this.upLoad()}>Subir</Button>
+          </div>      
+        </div>
+      </div>);
+  }
+
   renderLabel() {
     const { filesSelected } = this.state;
     if (!filesSelected || !filesSelected.length) {
@@ -57,29 +81,7 @@ class Upload extends Component {
     });
   }
 
-  render() {
-    const { career } = this.state;
-    return(
-      <div className="upload-form-container">
-        <div className="form-selects-row">
-          <CareerSelect 
-            onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
-          <AssignatureSelect
-            careerId={career ? career.Id : null}
-            onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
-        </div>
-        <div className="from-action-container">
-          { this.renderLabel() }
-          <ReactFileReader handleFiles={(files) => this.setState(prevState => ({ filesSelected: [...files, ...prevState.filesSelected] }))}>
-            <Button type="file" variant="contained" color="primary">Buscar..</Button>
-          </ReactFileReader>
-          <br/>
-          <div className="float-right">
-            <Button variant="contained" color="secondary" onClick={() => this.upLoad()}>Subir</Button>
-          </div>      
-        </div>
-      </div>);
-    }
+  
 }
 
 export default Upload;

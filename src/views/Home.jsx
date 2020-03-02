@@ -13,6 +13,7 @@ import Box from '@material-ui/core/Box';
 import { useState } from 'react';
 
 const Home = () => {
+
     /**
      * Methods
     */
@@ -59,7 +60,6 @@ const Home = () => {
     */
     const theme = useTheme();
     const classes = useStyles();
-    
 
     return (
         <div>

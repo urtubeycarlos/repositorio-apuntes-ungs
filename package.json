@@ -13,12 +13,6 @@
     "@version/react-router-v3": "^1.0.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "cordova-browser": "^6.0.0",
-    "cordova-plugin-badge": "^0.8.8",
-    "cordova-plugin-device": "^2.0.3",
-    "cordova-plugin-geolocation": "^4.0.2",
-    "cordova-plugin-local-notification": "^0.9.0-beta.2",
-    "cordova_script": "0.0.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-browser-notifications": "^1.0.14",
@@ -27,17 +21,15 @@
     "react-file-reader": "^1.1.4",
     "react-onsenui": "^1.11.2",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.1",
+    "react-scripts": "^3.3.1",
     "react-swipeable-views": "^0.13.9",
-    "react.cordova-navigation_controller": "^1.6.6",
-    "webpack": "^4.41.5"
+    "webpack": "4.41.5"
   },
   "scripts": {
-    "start": "reco serve",
-    "build": "react-scripts build && reco copy && cordova build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "eject": "react-scripts eject",
-    "reactstart": "react-scripts start"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,27 +44,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "displayName": "Repositorio de Apuntes UNGS",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
-  "keywords": [
-    "ecosystem:cordova"
-  ],
-  "author": "DataCyber-OrChuban, react.cordova: Apache Cordova Team and React.js",
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "cordova-plugin-whitelist": "^1.3.4"
-  },
-  "cordova": {
-    "plugins": {
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-local-notification": {},
-      "cordova-plugin-geolocation": {}
-    },
-    "platforms": [
-      "browser"
     ]
   }
 }
