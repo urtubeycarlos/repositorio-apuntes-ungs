@@ -9,9 +9,33 @@ const { getNoteByAssignaure } = require('../services/notesService');
 class Results extends Component {
   constructor(props){
     super(props)
-      this.state = {
-        results: null
-      }
+    
+    this.state = {
+      results: null
+    }
+  }
+
+  render() {
+    const { results } = this.state;
+    return !results ?
+      <Container>
+        <Logo />
+        <Jumbotron>
+          <Row className="justify-content-center">
+            <h5>Buscando apuntes</h5>
+          </Row>
+          <Loading />
+        </Jumbotron>
+      </Container> :
+      <Container>
+        <Logo />
+        <Jumbotron>
+          <Row className="justify-content-center">
+            <h5>Apuntes encontrados</h5>
+            {this.generateNotes()}
+          </Row>
+        </Jumbotron>
+      </Container>
   }
 
   componentDidMount() {
@@ -39,33 +63,23 @@ class Results extends Component {
     return params
   }
 
-  render() {
+  generateNotes(){
+    let notes = []
+
     const { results } = this.state;
-    return !results ?
-      <Container>
-        <Logo />
-        <Jumbotron>
-          <Row className="justify-content-center">
-            <h5>Buscando apuntes</h5>
-          </Row>
-          <Loading />
-          <Note 
-            filename={'complejidad_computacional'} 
-            extension={'.java'} 
-            url={"https://www.youtube.com/"} 
-            description={"Soy una describicion."}
-            />   
-        </Jumbotron>
-      </Container> :
-      <Container>
-        <Logo />
-        <Jumbotron>
-          <Row className="justify-content-center">
-            <h5>Apuntes encontrados</h5>
-          </Row>
-        </Jumbotron>
-      </Container>
+    results.forEach(note => {
+      let newJsx4Note = `<Note 
+      filename=${note.Name} 
+      extension=${note.Extension} 
+      url=${note.Url} 
+      description=${note.Description}
+      />`;  
+      notes.push(newJsx4Note);
+    });
+
+    return notes;
   }
+  
 }
 
 export default Results;

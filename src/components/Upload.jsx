@@ -9,6 +9,8 @@ import ReactFileReader from 'react-file-reader';
 import CareerSelect from '../components/CareerSelect';
 import AssignatureSelect from '../components/AssignatureSelect';
 
+import { uploadFile } from './../services/notesService'
+
 
 class Upload extends Component {
   constructor(props) {
@@ -17,6 +19,7 @@ class Upload extends Component {
     this.state = {
       filesSelected: [],
       career: null,
+      assignature: null
     }
 
   }
@@ -79,6 +82,26 @@ class Upload extends Component {
     this.setState({
       filesSelected: filteredFiles,
     });
+  }
+
+  upLoad(){
+      /* let filearr = this.state.filesSelected[0].name.split('.') */
+      console.log();
+      
+      
+      let filename = this.state.filesSelected[0].name.split('.');
+      let fileExtension = filename[1];
+      filename = filename[0];
+      let fileDescription = this.state.fileDescription
+
+      const data = new FormData();
+      data.append('filename', filename);
+      data.append('extension', fileExtension);
+      data.append('description', fileDescription);
+      data.append('assignatureid', this.state.assignature.Id);
+      data.append(filename, this.state.filesSelected[0]);
+      
+      uploadFile(data).then( response => console.log(response) );
   }
 
   
