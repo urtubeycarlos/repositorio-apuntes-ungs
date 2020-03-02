@@ -2,6 +2,7 @@ import './styles/upload.css';
 import React, { Component } from 'react';
 
 import Button from '@material-ui/core/Button';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import ReactFileReader from 'react-file-reader';
@@ -34,6 +35,14 @@ class Upload extends Component {
           <AssignatureSelect
             careerId={career ? career.Id : null}
             onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
+        </div>
+        <div className="form-selects-row">
+          <TextareaAutosize
+            rowsMin={3} 
+            placeholder="Ingrese descripción del archivo" 
+            style={{'width':'100%'}}
+            onChange={ (event) => this.setState({fileDescription: event.target.value}) }
+            />
         </div>
         <div className="from-action-container">
           { this.renderLabel() }
@@ -85,9 +94,7 @@ class Upload extends Component {
   }
 
   upLoad(){
-      /* let filearr = this.state.filesSelected[0].name.split('.') */
-      console.log();
-      
+      /* let filearr = this.state.filesSelected[0].name.split('.') */      
       
       let filename = this.state.filesSelected[0].name.split('.');
       let fileExtension = filename[1];
