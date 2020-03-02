@@ -8,8 +8,8 @@ export const getNoteByAssignaure = (assignatureId) => restclient.get('note', nul
 export const uploadFile = (data) => {
     if( !(data instanceof FormData) )
         throw new Error('data isnt instance of FormData')
-    const { serverURI, currentApiVersion } = config;
-    fetch(`${serverURI}/api/${currentApiVersion}`, {
+
+    return fetch(`${config.serverURI}/api/${config.currentApiVersion}`, {
         method: 'POST',
         mode: 'cors',
         body: data

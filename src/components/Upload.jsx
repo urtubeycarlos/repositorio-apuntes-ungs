@@ -23,6 +23,8 @@ class Upload extends Component {
       assignature: null
     }
 
+    this.upLoad = this.upLoad.bind(this)
+
   }
 
   render() {
@@ -51,7 +53,7 @@ class Upload extends Component {
           </ReactFileReader>
           <br/>
           <div className="float-right">
-            <Button variant="contained" color="secondary" onClick={() => this.upLoad()}>Subir</Button>
+            <Button variant="contained" color="secondary" onClick={this.upLoad}>Subir</Button>
           </div>      
         </div>
       </div>);
@@ -96,6 +98,8 @@ class Upload extends Component {
   upLoad(){
       /* let filearr = this.state.filesSelected[0].name.split('.') */      
       
+      console.log("Subiendo...");
+
       let filename = this.state.filesSelected[0].name.split('.');
       let fileExtension = filename[1];
       filename = filename[0];
@@ -108,7 +112,8 @@ class Upload extends Component {
       data.append('assignatureid', this.state.assignature.Id);
       data.append(filename, this.state.filesSelected[0]);
       
-      uploadFile(data).then( response => console.log(response) );
+      uploadFile(data).then( response => console.log(response) )  ;
+      console.log('Termino de subir')
   }
 
   
