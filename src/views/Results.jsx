@@ -42,6 +42,7 @@ class Results extends Component {
 
   render() {
     const { results } = this.state;
+    console.log( this.state.id )
     return !results ?
       <Container>
         <Logo />
