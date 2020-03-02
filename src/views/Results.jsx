@@ -16,6 +16,7 @@ class Results extends Component {
 
   componentDidMount() {
     const searchParams = this.getParams();
+    console.log(searchParams);
     if (searchParams.assignature) {
       getNoteByAssignaure(searchParams.assignature)
         .then(response => {
@@ -33,16 +34,13 @@ class Results extends Component {
     const params = {};
     const searchParams = new URLSearchParams(window.location.search)
 
-    for (let param of searchParams) {
+    for (let param of searchParams)
       params[param[0]] = param[1];
-    }
-
     return params
   }
 
   render() {
     const { results } = this.state;
-    console.log( this.state.id )
     return !results ?
       <Container>
         <Logo />
@@ -55,7 +53,8 @@ class Results extends Component {
             filename={'complejidad_computacional'} 
             extension={'.java'} 
             url={"https://www.youtube.com/"} 
-            description={"Soy una describicion."}/>   
+            description={"Soy una describicion."}
+            />   
         </Jumbotron>
       </Container> :
       <Container>
@@ -70,18 +69,3 @@ class Results extends Component {
 }
 
 export default Results;
-
-    // componentWillMount(){
-    //     var self = this;
-    //     $.ajax("http://localhost/api/1.0/note").
-    //                 then(function(response){
-    //                     response['Notes'] = response['Notes'].map(function(note){
-    //                         console.log(note)
-    //                         return (
-    //                             <Note filename={`${note.Filename}.${note.Extension}`} description={note.Description} url={note.Url}/>
-    //                         )
-    //                     })
-    //                     self.setState({'results': response['Notes']});
-    //                 })
-        
-    // }
