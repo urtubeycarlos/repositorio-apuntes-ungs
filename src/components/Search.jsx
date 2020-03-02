@@ -21,14 +21,6 @@ class Search extends Component {
         redirect: undefined
       }
 
-      this.setCareer = this.setCareer.bind(this);
-    }
-
-    setCareer(newCareer) {
-      this.setState({
-        career: newCareer,
-        isLoading: true,
-      });
     }
 
     search = () => {

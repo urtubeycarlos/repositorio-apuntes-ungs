@@ -28,7 +28,7 @@ class AssignatureSelect extends Component {
         disabled: false,
         isLoading: true,
       }, () => {
-        getAssignatureByCareer(this.props.carrerId)
+        getAssignatureByCareer(this.props.careerId)
           .then(response => {
             this.setState({
               assignatures: response.data.Assignatures,
