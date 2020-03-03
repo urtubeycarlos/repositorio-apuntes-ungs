@@ -135,7 +135,11 @@ class Upload extends Component {
           </ReactFileReader>
           <br/>
           <div className="float-right">
-            <Button variant="contained" color="secondary" onClick={this.upLoad}>Subir</Button>
+            <Button 
+              variant="contained" 
+              color="secondary" 
+              onClick={this.upLoad} 
+              disabled={isUploading} >Subir</Button>
           </div>      
         </div>
         <Portal>
