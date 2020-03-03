@@ -102,7 +102,7 @@ class Upload extends Component {
 
       let filename = this.state.filesSelected[0].name.split('.');
       let fileExtension = filename[1];
-      filename = filename[0];
+      filename = filename[0].replace(" ", "_");;
       let fileDescription = this.state.fileDescription
 
       const data = new FormData();
@@ -110,7 +110,7 @@ class Upload extends Component {
       data.append('extension', fileExtension);
       data.append('description', fileDescription);
       data.append('assignatureid', this.state.assignature.Id);
-      data.append(filename, this.state.filesSelected[0]);
+      data.append(filename, this.state.filesSelected[0], filename);
       
       uploadFile(data).then( response => console.log(response) )  ;
       console.log('Termino de subir')
