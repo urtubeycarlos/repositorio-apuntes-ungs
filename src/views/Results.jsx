@@ -81,7 +81,7 @@ class Results extends Component {
               onClick={() => window.location.href = 'home'}>
               <HomeIcon />
             </IconButton>
-            <h5>{results && results.length ? 'Apuntes encontrados' : 'No se encontraron apuntes para la materia'}</h5>
+            <h5>{results && results.length ? 'Apuntes encontrados' : 'Materia sin apuntes'}</h5>
           </Row>
             {this.generateNotes()}
         </Jumbotron>
