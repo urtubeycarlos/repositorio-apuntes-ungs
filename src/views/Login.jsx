@@ -43,11 +43,12 @@ export default class Login extends Component {
       };
 
       navigator.geolocation.getCurrentPosition((position) => {
-        const data = new FormData();
-        data.append('lat', position.coords.latitude);
-        data.append('lon', position.coords.longitude);
-      
-        loginIn(data).then(response => {
+        const lonlat = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        }
+        
+        loginIn(lonlat).then(response => {
           if( response.data.isLogged ) {
             this.setState({'redirect':'home'});
           }

@@ -24,7 +24,7 @@ class Search extends Component {
     }
 
     search = () => {
-        this.setState({'redirect':`results?assignatureid=${this.state.assignature.Id}`});
+        this.setState({'redirect':`results?assignature=${this.state.assignature.Id}`});
     }
 
     render() {

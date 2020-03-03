@@ -14,6 +14,48 @@ class Results extends Component {
       results: null
     }
   }
+  
+  componentDidMount() {
+    const searchParams = this.getParams();
+    if (searchParams.assignature) {
+      debugger
+      getNoteByAssignaure(searchParams.assignature)
+        .then(response => {
+          debugger
+          this.setState({
+            results: response.data.Notes,
+          });
+        })
+        .catch((err) => {
+          debugger
+          //handle somehow this error
+        });
+    }
+  }
+
+  getParams() {
+    const params = {};
+    const searchParams = new URLSearchParams(window.location.search)
+
+    for (let param of searchParams)
+      params[param[0]] = param[1];
+    return params
+  }
+
+  generateNotes(){
+    let notes = []
+    const { results } = this.state;
+    results.forEach(note => 
+      notes.push(
+        <Note 
+          filename={note.Filename} 
+          extension={note.Extension} 
+          url={note.Url} 
+          description={note.Description} />));
+
+    return notes;
+  }
+
 
   render() {
     const { results } = this.state;
@@ -31,53 +73,11 @@ class Results extends Component {
         <Logo />
         <Jumbotron>
           <Row className="justify-content-center">
-            <h5>Apuntes encontrados</h5>
-            {this.generateNotes()}
+            <h5>{results && results.length ? 'Apuntes encontrados' : 'No se encontraron apuntes para la materia'}</h5>
           </Row>
+            {this.generateNotes()}
         </Jumbotron>
       </Container>
-  }
-
-  componentDidMount() {
-    const searchParams = this.getParams();
-    console.log(searchParams);
-    if (searchParams.assignature) {
-      getNoteByAssignaure(searchParams.assignature)
-        .then(response => {
-          this.setState({
-            results: response.data.Notes,
-          });
-        })
-        .catch((err) => {
-          //handle somehow this error
-        });
-    }
-  }
-
-  getParams() {
-    const params = {};
-    const searchParams = new URLSearchParams(window.location.search)
-
-    for (let param of searchParams)
-      params[param[0]] = param[1];
-    return params
-  }
-
-  generateNotes(){
-    let notes = []
-
-    const { results } = this.state;
-    results.forEach(note => {
-      let newJsx4Note = `<Note 
-      filename=${note.Name} 
-      extension=${note.Extension} 
-      url=${note.Url} 
-      description=${note.Description}
-      />`;  
-      notes.push(newJsx4Note);
-    });
-
-    return notes;
   }
   
 }

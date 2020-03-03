@@ -25,27 +25,21 @@ export default class RESTClient {
   }
 
   signIn(position) {
-    if( !(position instanceof FormData) ) {
-      throw new Error('Position must be a instance of FormData');
-    }
     const params = new URLSearchParams();
-    params.append('data', position);
-
-    return axios.post(`${config.serverURI}/login.php`, params)
+    params.append('lat', position.lat);
+    params.append('lon', position.lon);
+    return axios.post(`${config.serverURI}/login.php`, params);
   } 
 
   parseFilterValue( value ) {
-
     if (value._isAMomentObject){
       return value.toISOString();
     }
-
     return value;
   }
 
   getFiltersUrl(filters) {
     let result = [];
-
     for (var key in filters) {
       if (filters[key] === undefined) { // what is this case for?
         result.push(key);
