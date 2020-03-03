@@ -11,9 +11,9 @@ export default class Note extends Component {
             fa_extension: "fa fa-file-o"
         }
 
-        this.extensionToFontAwesome = {
+        /* this.extensionToFontAwesome = {
             "pdf": "fa fa-file-pdf-o"
-        }
+        } */
     }
     render(){
         return (
@@ -43,17 +43,17 @@ export default class Note extends Component {
     componentDidMount(){
 
         let extensions = {
-            word : ['.doc', '.docx', '.odt'],
-            excel : ['.xls', '.xlsx', '.csv', '.xps'],
-            slide : ['.ppt', '.pptx', '.pps', '.ppsx', '.odp'],
-            text : ['.txt', '.md', '.markdown'],
-            video : ['.mp4', '.avi', '.3gp', '.wmv'],
-            audio : ['.mp3', '.m4a', '.ogg', '.aac', '.3gpp'],
-            compressed : ['.zip', '.rar'],
-            pdf : ['.pdf'],
-            book : ['.epub'],
-            imgs : ['.jpg', '.jpeg', '.jfif', '.png', '.webp', '.gif', '.bmp', '.dib', '.tif', '.tiff', '.svg'],
-            code : ['.py', '.java', '.jar', '.c', '.cpp', '.go', '.asm', '.js', '.html', '.css', '.sass']
+            word : ['doc', 'docx', 'odt'],
+            excel : ['xls', 'xlsx', 'csv', 'xps'],
+            slide : ['ppt', 'pptx', 'pps', 'ppsx', 'odp'],
+            text : ['txt', 'md', 'markdown'],
+            video : ['mp4', 'avi', '3gp', 'wmv'],
+            audio : ['mp3', 'm4a', 'ogg', 'aac', '3gpp'],
+            compressed : ['zip', 'rar'],
+            pdf : ['pdf'],
+            book : ['epub'],
+            imgs : ['jpg', 'jpeg', 'jfif', 'png', 'webp', 'gif', 'bmp', 'dib', 'tif', 'tiff', 'svg'],
+            code : ['py', 'java', 'jar', 'c', 'cpp', 'go', 'asm', 'js', 'html', 'css', 'sass']
         }
 
         let fas = {
