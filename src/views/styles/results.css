@@ -1,0 +1,9 @@
+.justify-content-center {
+  position: relative !important;
+}
+
+.home-button {
+  position: absolute !important;
+  left: 0;
+  top: -40%;
+}

@@ -17,8 +17,8 @@ export default class RESTClient {
   }
 
   post(endpoint, data) {
-    if( !(data instanceof FormData) ) {
-      throw new Error('Position must be a instance of FormData');
+    if( !(data instanceof URLSearchParams) ) {
+      throw new Error('Data must be a instance of URLSearchParams');
     }
     const urlEndpoint = `${this.apiURI}/${endpoint}`;
     return axios.post(urlEndpoint, data);

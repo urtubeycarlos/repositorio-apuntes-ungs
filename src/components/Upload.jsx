@@ -6,9 +6,13 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import ReactFileReader from 'react-file-reader';
+import Snackbar from '@material-ui/core/Snackbar';
+import Portal from "@material-ui/core/Portal";
+import MuiAlert from '@material-ui/lab/Alert';
 
 import CareerSelect from '../components/CareerSelect';
 import AssignatureSelect from '../components/AssignatureSelect';
+import Loading from '../components/Loading';
 
 import { uploadFile } from './../services/notesService'
 
@@ -20,43 +24,62 @@ class Upload extends Component {
     this.state = {
       filesSelected: [],
       career: null,
-      assignature: null
+      assignature: null,
+      isLoading: false,
+      isUploading: false,
+      loaded: false,
+      isError: false,
+      errorMSj: '',
     }
 
     this.upLoad = this.upLoad.bind(this)
 
   }
 
-  render() {
-    const { career } = this.state;
-    return(
-      <div className="upload-form-container">
-        <div className="form-selects-row">
-          <CareerSelect 
-            onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
-          <AssignatureSelect
-            careerId={career ? career.Id : null}
-            onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
-        </div>
-        <div className="form-selects-row">
-          <TextareaAutosize
-            rowsMin={3} 
-            placeholder="Ingrese descripción del archivo" 
-            style={{'width':'100%'}}
-            onChange={ (event) => this.setState({fileDescription: event.target.value}) }
-            />
-        </div>
-        <div className="from-action-container">
-          { this.renderLabel() }
-          <ReactFileReader handleFiles={(files) => this.setState(prevState => ({ filesSelected: [...files, ...prevState.filesSelected] }))}>
-            <Button type="file" variant="contained" color="primary">Buscar..</Button>
-          </ReactFileReader>
-          <br/>
-          <div className="float-right">
-            <Button variant="contained" color="secondary" onClick={this.upLoad}>Subir</Button>
-          </div>      
-        </div>
-      </div>);
+  deleteFile(file) {
+    const { filesSelected } = this.state;
+    const copiedFiles = Array.from(filesSelected);
+    const filteredFiles = copiedFiles.filter(element => element.name != file.name);
+    
+    this.setState({
+      filesSelected: filteredFiles,
+    });
+  }
+
+  upLoad() {
+      this.setState({
+        isUploading: true,
+      }, () => {
+        let filename = this.state.filesSelected[0].name.split('.');
+        let fileExtension = filename[1];
+        filename = filename[0].replace(" ", "_");;
+        let fileDescription = this.state.fileDescription
+  
+        const data = new FormData();
+        data.append('filename', filename);
+        data.append('extension', fileExtension);
+        data.append('description', fileDescription);
+        data.append('assignatureid', this.state.assignature.Id);
+        data.append(filename, this.state.filesSelected[0], filename);
+        
+        uploadFile(data)
+          .then(response => {
+            this.setState({
+              filesSelected: [],
+              isLoaded: true,
+              isUploading: false,
+            });
+          })
+          .catch((err) => {
+            this.setState({
+              filesSelected: [],
+              isLoaded: false,
+              isUploading: false,
+              isError: true,
+              errorMsj: err.toString(),
+            });
+          });
+      })
   }
 
   renderLabel() {
@@ -84,39 +107,59 @@ class Upload extends Component {
         <label>Selecciona otro archivo</label>
       </React.Fragment>)
   }
-
-  deleteFile(file) {
-    const { filesSelected } = this.state;
-    const copiedFiles = Array.from(filesSelected);
-    const filteredFiles = copiedFiles.filter(element => element.name != file.name);
-    
-    this.setState({
-      filesSelected: filteredFiles,
-    });
-  }
-
-  upLoad(){
-      /* let filearr = this.state.filesSelected[0].name.split('.') */      
-      
-      console.log("Subiendo...");
-
-      let filename = this.state.filesSelected[0].name.split('.');
-      let fileExtension = filename[1];
-      filename = filename[0].replace(" ", "_");;
-      let fileDescription = this.state.fileDescription
-
-      const data = new FormData();
-      data.append('filename', filename);
-      data.append('extension', fileExtension);
-      data.append('description', fileDescription);
-      data.append('assignatureid', this.state.assignature.Id);
-      data.append(filename, this.state.filesSelected[0], filename);
-      
-      uploadFile(data).then( response => console.log(response) )  ;
-      console.log('Termino de subir')
-  }
-
   
+  render() {
+    const { career, isLoaded, isError, errorMsj, isUploading } = this.state;
+    const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
+    return isUploading ? <Loading /> : 
+    (<div className="upload-form-container">
+        <div className="form-selects-row">
+          <CareerSelect 
+            onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
+          <AssignatureSelect
+            careerId={career ? career.Id : null}
+            onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
+        </div>
+        <div className="form-selects-row">
+          <TextareaAutosize
+            rowsMin={3} 
+            placeholder="Ingrese descripción del archivo" 
+            style={{'width':'100%'}}
+            onChange={ (event) => this.setState({fileDescription: event.target.value}) }
+            />
+        </div>
+        <div className="from-action-container">
+          { this.renderLabel() }
+          <ReactFileReader handleFiles={(files) => this.setState(prevState => ({ filesSelected: [...files, ...prevState.filesSelected] }))}>
+            <Button type="file" variant="contained" color="primary">Buscar..</Button>
+          </ReactFileReader>
+          <br/>
+          <div className="float-right">
+            <Button variant="contained" color="secondary" onClick={this.upLoad}>Subir</Button>
+          </div>      
+        </div>
+        <Portal>
+          <Snackbar 
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} 
+            open={isError} 
+            autoHideDuration={600000} 
+            onClose={() => this.setState({ isError: false, })}>
+            <Alert 
+              onClose={() => this.setState({ isError: false })} 
+              severity="error">{errorMsj}</Alert>
+          </Snackbar>
+          <Snackbar 
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} 
+            open={isLoaded} 
+            autoHideDuration={600000} 
+            onClose={() => this.setState({ isLoaded: false, })}>
+            <Alert 
+              onClose={() => this.setState({ isError: false })} 
+              severity="success">"El archivo se cargo exitosamente!"</Alert>
+          </Snackbar>
+        </Portal>
+      </div>);
+  }
 }
 
 export default Upload;

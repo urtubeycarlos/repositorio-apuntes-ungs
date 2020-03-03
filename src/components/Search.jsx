@@ -1,9 +1,7 @@
 import './styles/search.css';
 import React, { Component } from 'react';
 
-import { Row, Form } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
-import { Redirect } from 'react-router-dom';
 import CareerSelect from './CareerSelect';
 import AssignatureSelect from './AssignatureSelect';
 
@@ -24,13 +22,12 @@ class Search extends Component {
     }
 
     search = () => {
-        this.setState({'redirect':`results?assignature=${this.state.assignature.Id}`});
+      window.location.href = `results?assignature=${this.state.assignature.Id}`;
     }
 
     render() {
       const { career, isLoading, assignature } = this.state;
-      if( this.state.redirect )
-        return <Redirect to={this.state.redirect} />
+
       return(
         <div className="search-form-container">
           <div className="form-selects-row">
