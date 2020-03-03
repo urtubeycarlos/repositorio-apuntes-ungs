@@ -26,7 +26,7 @@ export default class Note extends Component {
                                     <i className={this.state.fa_extension} style={{"fontSize":"5em"}}></i>
                                 </Col>
                                 <Col>
-                                    <Card.Title>{`${this.props.filename}${this.props.extension}`}</Card.Title>
+                                    <Card.Title>{`${this.props.filename}.${this.props.extension}`}</Card.Title>
                                     <Card.Text>
                                         {this.props.description}
                                     </Card.Text>
