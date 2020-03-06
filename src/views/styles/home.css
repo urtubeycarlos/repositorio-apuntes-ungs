@@ -5,6 +5,8 @@
 
 .top-bar-menu {
   background: #e53935 !important;
+  min-height: 9vh;
+  max-height: 9vh;
 }
 
 .MuiDrawer-paperAnchorLeft {
@@ -13,7 +15,8 @@
 
 .header-side-bar-menu {
   background: #e53935 !important;
-  min-height: 57px;
+  min-height: 9vh;
+  max-height: 9vh;
 }
 
 .side-bar-menu-options {
