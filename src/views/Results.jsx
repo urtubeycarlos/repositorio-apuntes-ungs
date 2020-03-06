@@ -62,7 +62,6 @@ class Results extends Component {
     const { results } = this.state;
     return !results ?
       <Container>
-        <Logo />
         <Jumbotron>
           <Row className="justify-content-center">
             <h5>Buscando apuntes</h5>
@@ -71,7 +70,6 @@ class Results extends Component {
         </Jumbotron>
       </Container> :
       <Container>
-        <Logo />
         <Jumbotron>
           <Row className="justify-content-center">
             <IconButton
