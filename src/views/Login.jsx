@@ -53,7 +53,7 @@ export default class Login extends Component {
         });
       }, (error) => {
         console.dir(error);
-        this.login();
+        window.location.href = '/no-position-accepted'
       }, gpsOptions);
       
     }

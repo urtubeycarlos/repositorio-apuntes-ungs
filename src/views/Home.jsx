@@ -14,6 +14,7 @@ import Login from './Login';
 import Results from './Results'
 import Search from './Search';
 import Upload from './Upload';
+import WithoutPosition from './WithoutPosition';
 
 import MenuOptions from './components/MenuOptions';
 import Logo from '../components/Logo';
@@ -65,6 +66,7 @@ class Home extends Component {
             <Route path="/search" component = {Search}/>
             <Route path="/results" component = {Results}/>
             <Route path="/upload" component = {Upload}/>
+            <Route path="/no-position-accepted" component = {WithoutPosition}/>
             {/* <Redirect from="/" to={{ pathname: "/login", }} /> */}
           </BrowserRouter>
         </div>
