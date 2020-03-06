@@ -13,3 +13,13 @@ ul {
 .from-action-container {
   padding: 20px;
 }
+
+.upload-form-container {
+  position: relative;
+}
+
+.float-right {
+  position: absolute !important;
+  bottom: 2vh;
+  right: 0;
+}
