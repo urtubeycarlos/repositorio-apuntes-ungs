@@ -2,11 +2,23 @@ import React from 'react';
 import { Row } from 'react-bootstrap';
 import './styles/logo.css'
 
-const Logo = () => {
-    return (
-        <Row className="justify-content-center">
-            <img alt="" src="./logo.png"></img>
-        </Row>);
-};
+export default class Logo extends React.Component {
 
-export default Logo;
+    constructor(props){
+        super(props)
+        this.redirect = this.redirect.bind(this);
+    }
+
+    render(){
+        return(
+            <Row className="justify-content-center" onClick={this.redirect}>
+                <img id="logo" alt="" src="./logo.png" style={{'cursor':'pointer'}}/>
+            </Row>
+        );
+    }
+
+    redirect(){
+        window.location.href="/home"
+    }
+
+}

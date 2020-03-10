@@ -130,7 +130,7 @@ class Upload extends Component {
         </div>
         <div className="from-action-container">
           { this.renderLabel() }
-          <ReactFileReader handleFiles={(files) => this.setState(prevState => ({ filesSelected: [...files, ...prevState.filesSelected] }))}>
+          <ReactFileReader fileTypes="*" handleFiles={(files) => this.setState(prevState => ({ filesSelected: [...files, ...prevState.filesSelected] }))}>
             <Button type="file" variant="contained" color="primary">Buscar..</Button>
           </ReactFileReader>
           <br/>
