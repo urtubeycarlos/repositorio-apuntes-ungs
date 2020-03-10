@@ -1,0 +1,36 @@
+.layout {
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-bar-menu {
+  background: #e53935 !important;
+  min-height: 9vh;
+  max-height: 9vh;
+}
+
+.MuiDrawer-paperAnchorLeft {
+  width: 20%;
+}
+
+.header-side-bar-menu {
+  background: #e53935 !important;
+  min-height: 9vh;
+  max-height: 9vh;
+}
+
+.side-bar-menu-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-container {
+  width: 100vw;
+  height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .MuiDrawer-paperAnchorLeft {
+    width: 50%;
+  }
+}

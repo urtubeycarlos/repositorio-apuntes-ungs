@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Logo from '../components/Logo.jsx';
 import Loading from '../components/Loading.jsx';
 import { Container, Jumbotron, Row } from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
@@ -22,7 +21,6 @@ export default class Login extends Component {
           return <Redirect to={this.state.redirect} />
       return (
         <Container>
-          <Logo />
           <Jumbotron>
             <Row className="justify-content-center">
               <h5>Detectando ubicación...</h5>
@@ -55,7 +53,7 @@ export default class Login extends Component {
         });
       }, (error) => {
         console.dir(error);
-        this.login();
+        window.location.href = '/no-position-accepted'
       }, gpsOptions);
       
     }

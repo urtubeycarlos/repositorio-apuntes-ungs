@@ -1,0 +1,27 @@
+ul {
+  list-style: none;
+}
+
+.search-form-container {
+  padding: 10px;
+  height: 35vh;
+  position: relative;
+}
+
+.assignature-select {
+  margin-bottom: 15px;
+}
+
+.career-select {
+  margin-bottom: 15px;
+}
+
+.from-action-container {
+  padding: 20px;
+}
+
+.search-button {
+  position: absolute !important;
+  bottom: 2vh;
+  right: 1vw;
+}
