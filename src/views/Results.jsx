@@ -25,7 +25,7 @@ class Results extends Component {
       getNoteByAssignaure(searchParams.assignature)
         .then(response => {
           this.setState({
-            results: response.data.Notes,
+            results: response.data,
           });
         })
         .catch((err) => {
@@ -49,10 +49,10 @@ class Results extends Component {
     results.forEach(note => 
       notes.push(
         <Note 
-          filename={note.Filename} 
-          extension={note.Extension} 
-          url={note.Url} 
-          description={note.Description} />));
+          filename={note.filename} 
+          extension={note.extension} 
+          url={note.url} 
+          description={note.description} />));
 
     return notes;
   }

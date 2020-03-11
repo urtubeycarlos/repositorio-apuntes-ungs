@@ -60,7 +60,7 @@ class Upload extends Component {
         data.append('filename', filename);
         data.append('extension', fileExtension);
         data.append('description', fileDescription);
-        data.append('assignatureid', this.state.assignature.Id);
+        data.append('assignatureid', this.state.assignature.id);
         data.append(filename, this.state.filesSelected[0], filename);
         
         uploadFile(data)
@@ -120,7 +120,7 @@ class Upload extends Component {
               <CareerSelect 
                 onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
               <AssignatureSelect
-                careerId={career ? career.Id : null}
+                careerId={career ? career.id : null}
                 onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
             </div>
             <div className="form-selects-row">

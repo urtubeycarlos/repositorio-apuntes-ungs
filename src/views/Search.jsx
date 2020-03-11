@@ -28,7 +28,7 @@ class Search extends Component {
               <CareerSelect 
                 onChange={(event, newCareer) => this.setState({ career: newCareer, isLoading: true })} />
               <AssignatureSelect
-                careerId={career ? career.Id : null}
+                careerId={career ? career.id : null}
                 onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
             </div>
             <div className="from-action-container">
@@ -38,7 +38,7 @@ class Search extends Component {
                   disabled={!career || !assignature} 
                   variant="contained" 
                   color="primary"
-                  onClick={() => window.location.href = `results?assignature=${assignature.Id}`} 
+                  onClick={() => window.location.href = `results?assignature=${assignature.id}`} 
                 >Buscar
                 </Button>
               </div>  

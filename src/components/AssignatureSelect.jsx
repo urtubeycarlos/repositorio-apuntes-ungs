@@ -31,7 +31,7 @@ class AssignatureSelect extends Component {
         getAssignatureByCareer(this.props.careerId)
           .then(response => {
             this.setState({
-              assignatures: response.data.Assignatures,
+              assignatures: response.data,
               isLoading: false,
             })
           })
@@ -57,7 +57,7 @@ class AssignatureSelect extends Component {
           className="assignature-select"
           options={assignatures}
           onChange={(event, newValue) => this.props.onChange && this.props.onChange(event, newValue)}
-          getOptionLabel={option => option.Name}
+          getOptionLabel={option => option.name}
           renderInput={params => (
             <TextField fullWidth
               {...params}

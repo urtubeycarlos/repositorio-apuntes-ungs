@@ -24,8 +24,9 @@ class CareerSelect extends Component {
   componentDidMount() {
     getAllCareers()
       .then(response => {
+        console.log(response.data);
         this.setState({
-          careers: response.data.Careers,
+          careers: response.data,
           isLoading: false,
         });
     })
@@ -48,7 +49,7 @@ class CareerSelect extends Component {
           className="career-select"
           options={careers}
           onChange={(event, newValue) => this.props.onChange && this.props.onChange(event, newValue)}
-          getOptionLabel={option => option.Name}
+          getOptionLabel={option => option.name}
           renderInput={params => (
             <TextField fullWidth
               {...params}
