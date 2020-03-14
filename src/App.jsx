@@ -1,10 +1,11 @@
 import './App.css';
 
-import React, { Component } from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import React from 'react';
+import RootRouter from './Routers/RootRouter';
 
-import Home from './views/Home.jsx'
-
-const App = () => <Home />;
+const App = () =>
+  <React.Fragment>
+    <RootRouter />;
+  </React.Fragment>
 
 export default App;

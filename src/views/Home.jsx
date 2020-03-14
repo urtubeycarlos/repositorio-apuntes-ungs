@@ -2,7 +2,7 @@ import './styles/home.css';
 
 import React, { Component } from 'react';
 
-import { BrowserRouter, Route, withRouter, Redirect } from "react-router-dom";
+import { Switch, Route, withRouter, BrowserRouter } from "react-router-dom";
 
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,11 +10,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import Login from './Login';
 import Results from './Results'
 import Search from './Search';
 import Upload from './Upload';
-import WithoutPosition from './WithoutPosition';
 
 import MenuOptions from './components/MenuOptions';
 import Logo from '../components/Logo';
@@ -30,8 +28,8 @@ class Home extends Component {
 
   render() {
     const { openSidebar } = this.state; 
-    const path = window.location.pathname;
-    const cantRedirect = path.includes('login') || path.includes('no-localization')
+    const path = this.props.match.path;
+    const location = this.props.location;
     return(
       <div className="layout">
         <AppBar 
@@ -40,7 +38,6 @@ class Home extends Component {
         >
           <Toolbar>
             <IconButton
-              disabled={cantRedirect}
               edge="start" 
               color="inherit"
               aria-label="menu"
@@ -60,18 +57,18 @@ class Home extends Component {
         </div>
         </Drawer>
         <div className="layout-container">
-          <Logo />
-          <BrowserRouter>
-            <Route path="/login" component={Login}/>
-            <Route path="/search" component = {Search}/>
-            <Route path="/results" component = {Results}/>
-            <Route path="/upload" component = {Upload}/>
-            <Route path="/no-position-accepted" component = {WithoutPosition}/>
-            {/* <Redirect from="/" to={{ pathname: "/login", }} /> */}
-          </BrowserRouter>
-        </div>
+            <Logo />
+            <BrowserRouter>
+              <Switch location={ location }>
+                <Route exact path={`${path}/`}  component={() => null}/>
+                <Route path={`${path}/search`}  component={Search}/>
+                <Route path={`${path}/results`} component={Results}/>
+                <Route path={`${path}/upload`}  component={Upload}/>
+              </Switch>
+            </BrowserRouter>
+          </div>
       </div>)
   }
 }
 
-export default Home;
+export default withRouter(Home);

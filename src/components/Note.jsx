@@ -17,27 +17,24 @@ export default class Note extends Component {
     }
     render(){
         return (
-            <Row className="justify-content-center">
-                <Card style={{"width": "75%"}}>
-                    <Card.Body>
-                        <Container>
-                            <Row>
-                                <Col sm={"auto"} className="my-auto">
-                                    <i className={this.state.fa_extension} style={{"fontSize":"5em"}}></i>
-                                </Col>
-                                <Col>
-                                    <Card.Title>{`${this.props.filename}.${this.props.extension}`}</Card.Title>
-                                    <Card.Text>
-                                        {this.props.description}
-                                    </Card.Text>
-                                    <Button color="secondary" href={this.props.url}>Descargar</Button>
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Card.Body>
-                </Card>
-            </Row>
-        )
+          <Row className="justify-content-center">
+            <Card style={{"width": "75%"}}>
+              <Card.Body>
+                <Container>
+                <Row>
+                  <Col sm={"auto"} className="my-auto">
+                    <i className={this.state.fa_extension} style={{"fontSize":"5em"}}></i>
+                  </Col>
+                  <Col>
+                    <Card.Title>{`${this.props.filename}.${this.props.extension}`}</Card.Title>
+                    <Card.Text>{this.props.description}</Card.Text>
+                    <Button color="secondary" href={this.props.url}>Descargar</Button>
+                  </Col>
+                </Row>
+              </Container>
+            </Card.Body>
+          </Card>
+        </Row>)
     }
 
     componentDidMount(){

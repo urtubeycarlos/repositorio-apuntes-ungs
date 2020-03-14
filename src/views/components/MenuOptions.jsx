@@ -13,11 +13,11 @@ const MenuOptions = ({}) => {
   return (
     <div>
       <List>
-          <ListItem button key="Buscar" onClick={() => window.location.href = "/search"}>
+          <ListItem button key="Buscar" onClick={() => window.location.href = "/home/search"}>
             <ListItemIcon><SearchIcon /></ListItemIcon>
             <ListItemText primary="Buscar" />
           </ListItem>
-          <ListItem button key="Subir" onClick={() => window.location.href = "/upload"}>
+          <ListItem button key="Subir" onClick={() => window.location.href = "/home/upload"}>
             <ListItemIcon><UploadIcon /></ListItemIcon>
             <ListItemText primary="Subir" />
           </ListItem>

@@ -38,7 +38,7 @@ class Search extends Component {
                   disabled={!career || !assignature} 
                   variant="contained" 
                   color="primary"
-                  onClick={() => window.location.href = `results?assignature=${assignature.id}`} 
+                  onClick={() => window.location.href = `/home/results?assignature=${assignature.id}`} 
                 >Buscar
                 </Button>
               </div>  

@@ -1,8 +1,17 @@
+.logo-container {
+  height: auto;
+  text-align: center;
+  padding: 2%;
+} 
 img {
     width: 60%;
     height: 10%;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+}
+
+img:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {

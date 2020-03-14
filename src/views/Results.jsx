@@ -2,11 +2,8 @@ import './styles/results.css';
 import React, { Component } from 'react';
 import { Container, Row, Jumbotron } from "react-bootstrap";
 import Loading from "../components/Loading.jsx";
-import Logo from '../components/Logo';
 import Note from '../components/Note';
 
-import HomeIcon from '@material-ui/icons/Home';
-import IconButton from '@material-ui/core/IconButton';
 
 const { getNoteByAssignaure } = require('../services/notesService');
 
@@ -72,16 +69,11 @@ class Results extends Component {
       <Container>
         <Jumbotron>
           <Row className="justify-content-center">
-            <IconButton
-              className="home-button" 
-              color="primary"  
-              component="span"
-              onClick={() => window.location.href = 'home'}>
-              <HomeIcon />
-            </IconButton>
             <h5>{results && results.length ? 'Apuntes encontrados' : 'Materia sin apuntes'}</h5>
           </Row>
+          <div className="notes-container">
             {this.generateNotes()}
+          </div>
         </Jumbotron>
       </Container>
   }
