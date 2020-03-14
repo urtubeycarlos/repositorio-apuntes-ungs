@@ -2,7 +2,7 @@ import './styles/home.css';
 
 import React, { Component } from 'react';
 
-import { Switch, Route, withRouter, BrowserRouter } from "react-router-dom";
+import { Switch, Route, withRouter, BrowserRouter, Redirect } from "react-router-dom";
 
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -67,6 +67,7 @@ class Home extends Component {
               </Switch>
             </BrowserRouter>
           </div>
+          <Redirect to={`${path}/search`} />
       </div>)
   }
 }
