@@ -13,6 +13,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Results from './Results'
 import Search from './Search';
 import Upload from './Upload';
+import Contact from './Contact';
+import About from './About';
 
 import MenuOptions from './components/MenuOptions';
 import Logo from '../components/Logo';
@@ -64,6 +66,8 @@ class Home extends Component {
                 <Route path={`${path}/search`}  component={Search}/>
                 <Route path={`${path}/results`} component={Results}/>
                 <Route path={`${path}/upload`}  component={Upload}/>
+                <Route path={`${path}/contact`}  component={Contact}/>
+                <Route path={`${path}/about`}  component={About}/>
               </Switch>
             </BrowserRouter>
           </div>

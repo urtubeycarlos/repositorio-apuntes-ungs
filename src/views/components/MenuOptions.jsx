@@ -27,7 +27,7 @@ const MenuOptions = ({}) => {
             <ListItemIcon><MailIcon /></ListItemIcon>
             <ListItemText primary="Contacto" />
           </ListItem>
-          <ListItem button key="Acerca de" onClick={() => window.location.href = "/home/info"}>
+          <ListItem button key="Acerca de" onClick={() => window.location.href = "/home/about"}>
             <ListItemIcon><InfoIcon /></ListItemIcon>
             <ListItemText primary="Acerca de" />
           </ListItem>
