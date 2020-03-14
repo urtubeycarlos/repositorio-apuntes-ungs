@@ -23,3 +23,12 @@ ul {
   bottom: 2vh;
   right: 0;
 }
+
+.search-button {
+  position: absolute;
+  left: 0;
+}
+
+.delete-button {
+  margin-left: 5%;
+}

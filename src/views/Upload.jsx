@@ -2,7 +2,7 @@ import './styles/upload.css';
 import React, { Component } from 'react';
 
 import Button from '@material-ui/core/Button';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import ReactFileReader from 'react-file-reader';
@@ -98,6 +98,7 @@ class Upload extends Component {
           <React.Fragment>
             <label>{file.name}</label>
             <IconButton 
+              className="delete-button"
               color="primary"  
               component="span"
               onClick={() => this.deleteFile(file)}>
@@ -110,7 +111,7 @@ class Upload extends Component {
   }
   
   render() {
-    const { career, isLoaded, isError, errorMsj, isUploading, filesSelected } = this.state;
+    const { career, isLoaded, isError, errorMsj, isUploading, filesSelected, assignature } = this.state;
     const Alert = (props) => <MuiAlert elevation={6} variant="filled" {...props} />;
     return isUploading ? <Loading /> :
       (<Container>
@@ -124,29 +125,33 @@ class Upload extends Component {
                 onChange={(event, newAssignature) => this.setState({ assignature: newAssignature })} />
             </div>
             <div className="form-selects-row">
-              <TextareaAutosize
-                rowsMin={3} 
-                placeholder="Ingrese descripción del archivo" 
-                style={{'width':'100%'}}
-                onChange={ (event) => this.setState({fileDescription: event.target.value}) }
-              />
+              { this.renderLabel() }
+              {filesSelected.length ? 
+              <TextField
+                style={{width: '100%', marginTop:'5%'}}
+                id="description"
+                label="Descripción"
+                multiline
+                rows="3"
+                variant="outlined"
+                onChange={ (event) => this.setState({fileDescription: event.target.value})}
+                defaultValue="Ingrese descripción del archivo"
+              /> : null}
             </div>
             <div className="from-action-container">
-              { this.renderLabel() }
+              <br />
               <ReactFileReader disabled={filesSelected.length} handleFiles={(files) => this.setState(prevState => ({ filesSelected: [...files, ...prevState.filesSelected] }))}>
-                <Button 
-                  type="file" 
-                  variant="contained" 
+                <Button
+                  className="search-button" 
                   color="primary" 
                   disabled={filesSelected.length}>Buscar..</Button>
               </ReactFileReader>
-              <br/>
               <div className="float-right">
                 <Button 
                   variant="contained" 
                   color="secondary" 
                   onClick={this.upLoad} 
-                  disabled={isUploading} >Subir</Button>
+                  disabled={isUploading || !assignature  || !filesSelected.length} >Subir</Button>
               </div>      
             </div>
             <Portal>

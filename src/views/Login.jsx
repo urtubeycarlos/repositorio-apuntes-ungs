@@ -48,7 +48,7 @@ export default class Login extends Component {
         
         loginIn(lonlat).then(response => {
           if( response.data.isLogged ) {
-            this.setState({'redirect':'home'});
+            this.setState({'redirect':'/home/search'});
           }
         });
       }, (error) => {

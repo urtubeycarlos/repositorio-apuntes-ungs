@@ -35,7 +35,6 @@ class Home extends Component {
     return(
       <div className="layout">
         <AppBar 
-          position="static"
           className="top-bar-menu"
         >
           <Toolbar>
