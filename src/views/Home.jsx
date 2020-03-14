@@ -67,7 +67,6 @@ class Home extends Component {
               </Switch>
             </BrowserRouter>
           </div>
-          <Redirect to={`${path}/search`} />
       </div>)
   }
 }
