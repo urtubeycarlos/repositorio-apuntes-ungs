@@ -16,6 +16,29 @@ class Results extends Component {
     }
   }
   
+  render() {
+    const { results } = this.state;
+    return !results ?
+      <Container>
+        <Jumbotron>
+          <Row className="justify-content-center">
+            <h5>Buscando apuntes</h5>
+          </Row>
+          <Loading />
+        </Jumbotron>
+      </Container> :
+      <Container>
+        <Jumbotron>
+          <Row className="justify-content-center my-3">
+            <h4>{results && results.length ? 'Apuntes encontrados' : 'Materia sin apuntes'}</h4>
+          </Row>
+          <div className="notes-container my-5">
+            {this.generateNotes()}
+          </div>
+        </Jumbotron>
+      </Container>
+  }
+
   componentDidMount() {
     const searchParams = this.getParams();
     if (searchParams.assignature) {
@@ -43,39 +66,14 @@ class Results extends Component {
   generateNotes(){
     let notes = []
     const { results } = this.state;
-    results.forEach(note => 
+    results.forEach((note, index) => 
       notes.push(
         <Note 
           filename={note.filename} 
           extension={note.extension} 
-          url={note.url} 
-          description={note.description} />));
+          index={index} />));
 
     return notes;
-  }
-
-
-  render() {
-    const { results } = this.state;
-    return !results ?
-      <Container>
-        <Jumbotron>
-          <Row className="justify-content-center">
-            <h5>Buscando apuntes</h5>
-          </Row>
-          <Loading />
-        </Jumbotron>
-      </Container> :
-      <Container>
-        <Jumbotron>
-          <Row className="justify-content-center">
-            <h5>{results && results.length ? 'Apuntes encontrados' : 'Materia sin apuntes'}</h5>
-          </Row>
-          <div className="notes-container">
-            {this.generateNotes()}
-          </div>
-        </Jumbotron>
-      </Container>
   }
   
 }

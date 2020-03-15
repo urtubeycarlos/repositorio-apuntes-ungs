@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card } from "react-bootstrap";
-import Button from '@material-ui/core/Button';
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+/* import Button from '@material-ui/core/Button'; */
 
 export default class Note extends Component {
     
@@ -18,23 +18,19 @@ export default class Note extends Component {
     render(){
         return (
           <Row className="justify-content-center">
-            <Card style={{"width": "75%"}}>
-              <Card.Body>
-                <Container>
-                <Row>
-                  <Col sm={"auto"} className="my-auto">
-                    <i className={this.state.fa_extension} style={{"fontSize":"5em"}}></i>
-                  </Col>
-                  <Col>
-                    <Card.Title>{`${this.props.filename}.${this.props.extension}`}</Card.Title>
-                    <Card.Text>{this.props.description}</Card.Text>
-                    <Button color="secondary" href={this.props.url}>Descargar</Button>
-                  </Col>
-                </Row>
-              </Container>
-            </Card.Body>
-          </Card>
-        </Row>)
+              <Col sm={4} xs={4} className="my-auto">
+                  <i className={this.state.fa_extension} style={{"fontSize":"4.5em"}}></i>
+              </Col>
+              <Col sm={8} xs={8} className="my-auto">
+                  <Row>
+                      <h5>{`${this.props.filename}.${this.props.extension}`}</h5>
+                  </Row>
+                  <Row>
+                      <Button className="mx-3" variant="info" index={this.props.index} >Más Info</Button>
+                  </Row>
+              </Col>
+          </Row>
+        )
     }
 
     componentDidMount(){
