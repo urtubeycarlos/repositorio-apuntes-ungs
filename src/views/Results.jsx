@@ -5,7 +5,7 @@ import Loading from "../components/Loading.jsx";
 import Note from '../components/Note';
 
 
-const { getNoteByAssignaure } = require('../services/notesService');
+const { getNoteByAssignature } = require('../services/notesService');
 
 class Results extends Component {
   constructor(props){
@@ -19,7 +19,7 @@ class Results extends Component {
   componentDidMount() {
     const searchParams = this.getParams();
     if (searchParams.assignature) {
-      getNoteByAssignaure(searchParams.assignature)
+      getNoteByAssignature(searchParams.assignature)
         .then(response => {
           this.setState({
             results: response.data,

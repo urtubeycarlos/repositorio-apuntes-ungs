@@ -1,4 +1,3 @@
-import config from "./../config";
 import RESTClient from './RESTClient';
 const restclient = new RESTClient();
 

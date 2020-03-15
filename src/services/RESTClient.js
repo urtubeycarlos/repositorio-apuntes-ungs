@@ -17,8 +17,8 @@ export default class RESTClient {
   }
 
   post(endpoint, data) {
-    if( !(data instanceof URLSearchParams) ) {
-      throw new Error('Data must be a instance of URLSearchParams');
+    if( !(data instanceof FormData) ) {
+      throw new Error('Data must be a instance of FormData');
     }
     const urlEndpoint = `${this.apiURI}/${endpoint}`;
     return axios.post(urlEndpoint, data);
@@ -28,8 +28,8 @@ export default class RESTClient {
     const params = new URLSearchParams();
     params.append('lat', position.lat);
     params.append('lon', position.lon);
-    return axios.post(`${config.serverURI}/login.php`, params);
-  } 
+    return axios.post(`${config.serverURI}/login`, params);
+  }
 
   parseFilterValue( value ) {
     if (value._isAMomentObject){

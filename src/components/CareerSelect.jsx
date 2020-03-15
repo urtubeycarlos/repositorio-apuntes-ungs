@@ -24,7 +24,6 @@ class CareerSelect extends Component {
   componentDidMount() {
     getAllCareers()
       .then(response => {
-        console.log(response.data);
         this.setState({
           careers: response.data,
           isLoading: false,

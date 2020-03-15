@@ -128,14 +128,13 @@ class Upload extends Component {
               { this.renderLabel() }
               {filesSelected.length ? 
               <TextField
-                style={{width: '100%', marginTop:'5%'}}
+                style={{width: '100%', marginTop:'1%'}}
                 id="description"
                 label="Descripción"
                 multiline
                 rows="3"
                 variant="outlined"
                 onChange={ (event) => this.setState({fileDescription: event.target.value})}
-                defaultValue="Ingrese descripción del archivo"
               /> : null}
             </div>
             <div className="from-action-container">
