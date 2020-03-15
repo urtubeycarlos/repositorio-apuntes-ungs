@@ -25,22 +25,21 @@ export default class Contact extends React.Component {
                     <Form onSubmit={this.sendMsg}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control name="from" id="from" type="email" required="true" onChange={ e => this.setState({from:e.target.value}) }/>
+                            <Form.Control name="from" id="from" type="email" required="true"/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Asunto</Form.Label>
-                            <Form.Control name="subject" id="subject" type="text" required="true" onChange={ e => this.setState({subject:e.target.value}) }/>
+                            <Form.Control name="subject" id="subject" type="text" required="true"/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Mensaje</Form.Label>
-                            <Form.Control name="msg" id="msg" as="textarea" rows="4" required="true" onChange={ e => this.setState({msg:e.target.value}) }/>
+                            <Form.Control name="msg" id="msg" as="textarea" rows="4" required="true"/>
                         </Form.Group>
                         <div className="row justify-content-end">
                             <Button 
                             type="submit"
                             variant="contained" 
                             color="primary"
-                            disabled={!this.state.from || !this.state.msg || !this.state.subject}
                             >Enviar</Button>
                         </div>
                     </Form>
