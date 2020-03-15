@@ -45,9 +45,12 @@ export default class Login extends Component {
           lat: position.coords.latitude,
           lon: position.coords.longitude,
         }
+
+      console.log("login...")
         
         loginIn(lonlat).then(response => {
-          if( response.data.isLogged ) {
+          console.log(response);
+          if( response.isLogged ) {
             this.setState({'redirect':'/home/search'});
           }
         });
