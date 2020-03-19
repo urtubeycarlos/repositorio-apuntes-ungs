@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Container, Row, Jumbotron } from "react-bootstrap";
 import Loading from "../components/Loading.jsx";
 import Note from '../components/Note';
+import { Accordion } from 'react-bootstrap';
 
 
 const { getNoteByAssignature } = require('../services/notesService');
@@ -32,9 +33,9 @@ class Results extends Component {
           <Row className="justify-content-center my-3">
             <h4>{results && results.length ? 'Apuntes encontrados' : 'Materia sin apuntes'}</h4>
           </Row>
-          <div className="notes-container my-5">
-            {this.generateNotes()}
-          </div>
+          <Accordion>
+              {this.generateNotes()}
+          </Accordion>
         </Jumbotron>
       </Container>
   }
@@ -71,6 +72,7 @@ class Results extends Component {
         <Note 
           filename={note.filename} 
           extension={note.extension} 
+          description={note.description}
           index={index} />));
 
     return notes;

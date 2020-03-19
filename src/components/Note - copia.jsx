@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, Button, Accordion } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 /* import Button from '@material-ui/core/Button'; */
 
 export default class Note extends Component {
@@ -17,21 +17,19 @@ export default class Note extends Component {
     }
     render(){
         return (
-            <Card>
-                <Accordion.Toggle as={Card.Header} eventKey={this.props.index}>
-                    <Row>
-                        <Col>
-                        <i className={this.state.fa_extension} style={{"fontSize":"4em"}}></i>
-                        </Col>
-                        <Col className="my-auto">
-                        <h5>{`${this.props.filename}.${this.props.extension}`}</h5>  
-                        </Col>
-                    </Row>
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey={this.props.index}>
-                    <Card.Body>{this.props.description}</Card.Body>
-                </Accordion.Collapse>
-            </Card>
+          <Row className="justify-content-center">
+              <Col sm={4} xs={4} className="my-auto">
+                  <i className={this.state.fa_extension} style={{"fontSize":"4.5em"}}></i>
+              </Col>
+              <Col sm={8} xs={8} className="my-auto">
+                  <Row>
+                      <h5>{`${this.props.filename}.${this.props.extension}`}</h5>
+                  </Row>
+                  <Row>
+                      <Button className="mx-3" variant="info" index={this.props.index} >Más Info</Button>
+                  </Row>
+              </Col>
+          </Row>
         )
     }
 
