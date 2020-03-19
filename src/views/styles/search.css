@@ -21,7 +21,8 @@ ul {
 }
 
 .search-button {
-  position: absolute !important;
+  /* position: absolute !important; */
+  position: relative !important; 
   bottom: 2vh;
   right: 1vw;
 }

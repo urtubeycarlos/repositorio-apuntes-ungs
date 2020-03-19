@@ -73,6 +73,7 @@ class Results extends Component {
           filename={note.filename} 
           extension={note.extension} 
           description={note.description}
+          url={note.url}
           index={index} />));
 
     return notes;

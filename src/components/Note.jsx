@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Card, Button, Accordion } from "react-bootstrap";
+import './styles/note.css'
 /* import Button from '@material-ui/core/Button'; */
 
 export default class Note extends Component {
@@ -17,7 +18,7 @@ export default class Note extends Component {
     }
     render(){
         return (
-            <Card>
+            <Card className="mb-4">
                 <Accordion.Toggle as={Card.Header} eventKey={this.props.index}>
                     <Row>
                         <Col>
@@ -29,7 +30,14 @@ export default class Note extends Component {
                     </Row>
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey={this.props.index}>
-                    <Card.Body>{this.props.description}</Card.Body>
+                    <Card.Body>
+                        <Row>
+                            {this.props.description}
+                        </Row>    
+                        <Row className="mt-3">
+                            <Button variant='info' href={this.props.url}>Descargar</Button>
+                        </Row>
+                    </Card.Body>
                 </Accordion.Collapse>
             </Card>
         )
